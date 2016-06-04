@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class CareCoopApplication {
 
 	public static void main(String[] args) {
-		System.out.println("Second Commit to git");
 		SpringApplication.run(CareCoopApplication.class, args);
 	}
 }
