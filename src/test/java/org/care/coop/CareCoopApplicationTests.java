@@ -14,6 +14,7 @@ public class CareCoopApplicationTests {
 
 	@Test
 	public void contextLoads() {
+		System.out.println("Test");
 	}
 
 }
