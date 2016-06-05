@@ -17,13 +17,13 @@ body {
 header {
 	margin-top: -20px;
 	background-color: #27ae60;
-	height: 121px;
+	height: 80px;
 }
 
 /* Nav Class */
 nav {
 	background-color: #ecf0f1;
-	height: 487px;	
+	height: 528px;	
 	width: 233px;
 	margin-top: -19px;
 }
@@ -75,7 +75,9 @@ section {
 }
 
 .main-body {
-	height: 487px;
+	height: 541px;
+	overflow-x: hidden;
+	margin-top: -41px;
 }
 /* end Nav Class */
 
@@ -84,3 +86,21 @@ footer {
 	height: 55px;
 	margin-top: -19px;
 }
+
+/* Verifier Class */
+.header-div {
+	border: 1px solid;
+	height: 150px;
+}
+
+.row1 {
+	margin-top: 23px;
+}
+
+.body-div {
+	overflow-y: scroll;
+	border: 1px solid;
+	margin-top: 15px;
+	height: 376px;
+}
+/* end Verifier Class */
