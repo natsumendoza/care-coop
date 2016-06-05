@@ -103,4 +103,8 @@ footer {
 	margin-top: 15px;
 	height: 376px;
 }
+
+.row .col-md-2 {
+	text-align: left;
+}
 /* end Verifier Class */
