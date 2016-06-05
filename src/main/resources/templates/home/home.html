@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Care Coop</title>
+	
+	<!-- import css files -->
+	<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" type="text/css" />
+	<link th:href="@{/css/bootstrap-theme.min.css}" rel="stylesheet" type="text/css" />
+	<!-- end -->
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	
+	<header>
+		<div class="wrapper header-wrapper">
+			<h1>Header</h1>
+		</div>
+	</header>
+	
+	<nav>
+		<div class="wrapper nav-wrapper">
+			<div class="list-menu-wrapper">
+				<ul class="list-menu">
+					<li class="verifier"><h4>Verifier</h4></li>
+					<li class="cash-collection"><h4>Cash Collection</h4></li>
+					<li class="cash-disbursement"><h4>Cash Disbursement</h4></li>
+					<li class="journal-voucher"><h4>Journal Voucher</h4></li>
+					<li class="general-ledger"><h4>General Ledger</h4></li>
+					<li class="subsidiary-ledger"><h4>Subsidiary Ledger</h4></li>
+					<li class="setup-computation"><h4>Setup and Computation</h4></li>
+					<li class="utility"><h4>Utility</h4></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	<section>
+		<div class="wrapper section-wrapper">
+			<div class="main-body"></div>
+		</div>
+	</section>
+	
+	<footer>
+		<div class="wrapper footer-wrapper">
+			<h1>Footer</h1>
+		</div>
+	</footer>
+	
+	<!-- import of javascript files -->
+	<script type="text/javascript" th:src="@{/js/jquery-2.2.4.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/app/init.js}"></script>
+	<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+	<!-- end -->
+	
+</body>
+</html>
+
