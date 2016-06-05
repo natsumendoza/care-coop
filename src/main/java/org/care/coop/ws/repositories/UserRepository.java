@@ -1,5 +1,10 @@
 package org.care.coop.ws.repositories;
 
-public class UserRepository{
+import org.care.coop.ws.models.UserModel;
+import org.springframework.data.jpa.repository.JpaRepository;
 
+public interface UserRepository extends JpaRepository<UserModel, Long>{
+
+	
+	
 }
