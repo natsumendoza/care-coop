@@ -93,7 +93,7 @@ footer {
 
 /* Verifier Class */
 .header-div {
-	border: 1px solid;
+	border: 1px solid #bdc3c7;
 	height: 150px;
 }
 
@@ -103,7 +103,7 @@ footer {
 
 .body-div {
 	overflow-y: scroll;
-	border: 1px solid;
+	border: 1px solid #bdc3c7;
 	margin-top: 15px;
 	height: 376px;
 }

@@ -5,7 +5,8 @@
 	
 	<!-- import css files -->
 	<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
-	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" type="text/css" />
+	<link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" />
+	<link th:href="@{/css/bootstrap-table.css}" rel="stylesheet" type="text/css" />
 	<link th:href="@{/css/bootstrap-theme.min.css}" rel="stylesheet" type="text/css" />
 	<!-- end -->
 	
@@ -14,12 +15,306 @@
 </head>
 <body>
 	
-	<h1>Subsidiary Ledger</h1>
+	<div class="verifier-body">
+		
+		<div class="header-div">
+			<div class="row row1">
+				<div class="col-md-2"><h4>Code:</h4></div>
+				<div class="col-md-2"><h4>
+					<select>
+						<option value="1234">1234</option>
+						<option value="4321">4321</option>
+						<option value="1324">1324</option>
+						<option value="3124">3124</option>
+					</select>
+				</h4></div>
+				<div class="col-md-2"><h4>Month:</h4></div>
+  				<div class="col-md-2"><h4>
+  					<select>
+  						<option value="1">January</option>
+  						<option value="2">February</option>
+  						<option value="3">March</option>
+  						<option value="4">April</option>
+  						<option value="5">May</option>
+  						<option value="6">June</option>
+  						<option value="7">July</option>
+  						<option value="8">August</option>
+  						<option value="9">September</option>
+  						<option value="10">October</option>
+  						<option value="11">November</option>
+  						<option value="12">December</option>
+  					</select>
+  				</h4></div>
+  				<div class="col-md-2"></div>
+  				<div class="col-md-2"></div>
+			</div>
+			
+			<div class="row row2">
+				<div class="col-md-2"><h4>Name:</h4></div>
+				<div class="col-md-2"><h4>1234</h4></div>
+				<div class="col-md-2"><h4>Status:</h4></div>
+  				<div class="col-md-2"><h4>Jan</h4></div>
+  				<div class="col-md-2"></div>
+  				<div class="col-md-2"></div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-3">
+					<button class="btn btn-default add-entry">Add Entry</button>
+					<button class="btn btn-default add-info">Add Info</button>
+				</div>
+				<div class="col-md-3"></div>
+				<div class="col-md-3"></div>
+				<div class="col-md-3"></div>
+			</div>
+			
+			<div class="body-div">
+				<table id="table" data-toggle="table" data-toolbar="#toolbar">
+					<thead>
+						<tr>
+							<th data-field="">Account</th>
+							<th data-field="">Debit</th>
+							<th data-field="">Credit</th>
+							<th data-field="">Code</th>
+							<th data-field="">Nature</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div>
+		
+	</div>
+	
+	<div id="subledger-modal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4>Add Information</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4">
+								<label>Code: </label>
+							</div>
+  							<div class="col-md-8">
+  								<input type="text" class="form-control inputCode" id="inputCode" name="inputCode" placeholder="Code" />
+  							</div>
+						</div>    
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4">
+								<label>Type: </label>
+							</div>
+  							<div class="col-md-8">
+  								<input type="text" class="form-control inputType" id="inputType" name="inputType" placeholder="Type" />
+  							</div>
+						</div>    
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4">
+							<label>Area: </label>
+							</div>
+							<div class="col-md-8">
+								<input type="text" class="form-control inputArea" id="inputArea" name="inputArea" placeholder="Area" />
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4">
+                        	<label>Credit Line: </label>
+	                        </div>
+	                        <div class="col-md-8">
+	                        	<input type="text" class="form-control inputCreditLine" id="inputCreditLine" name="inputCreditLine" placeholder="Credit Line" />
+	                        </div>
+						</div>
+					</div>
+					<div class="form-group">
+                        <div class="row">
+	 						<div class="col-md-1"></div>
+	 						<div class="col-md-1">
+								<label>Address</label>
+							</div>
+							<div class="col-md-1"></div>
+	 						<div class="col-md-1"></div>
+	 						<div class="col-md-1"></div>
+	 						<div class="col-md-1"></div>
+	 						<div class="col-md-1"></div>
+	 						<div class="col-md-1"></div>
+	 						<div class="col-md-1"></div>
+	 						<div class="col-md-1"></div>
+						</div>
+						
+						<div class="row">
+							<div class="col-md-2"></div>
+	 						<div class="col-md-2">
+	 							<label>Street: </label>
+	 						</div>
+							<div class="col-md-8">
+								<input type="text" class="form-control inputStreet" id="inputStreet" name="inputStreet" placeholder="Street" />
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-md-2"></div>
+	 						<div class="col-md-2">
+	 							<label>Town: </label>
+	 						</div>
+							<div class="col-md-8">
+								<input type="text" class="form-control inputTown" id="inputTown" name="inputTown" placeholder="Town" />
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-md-2"></div>
+	 						<div class="col-md-2">
+	 							<label>City: </label>
+	 						</div>
+							<div class="col-md-8">
+								<input type="text" class="form-control inputCity" id="inputCity" name="inputCity" placeholder="City" />
+							</div>
+						</div>
+                        
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4">
+								<label>Telephone: </label>
+							</div>
+	 						<div class="col-md-8">
+	 							<input type="text" class="form-control inputTelephone" id="inputTelephone" name="inputTelephone" placeholder="Telephone" />
+	 						</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4">
+								<label>Birthday: </label>
+							</div>
+	 						<div class="col-md-8">
+	 							<input type="text" class="form-control inputBday" id="inputBday" name="inputBday" placeholder="Birthday" />
+	 						</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4">
+								<label>Membership: </label>
+							</div>
+	 						<div class="col-md-8">
+	 							<input type="text" class="form-control inputMembership" id="inputMembership" name="inputMembership" placeholder="Membership" />
+	 						</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4">
+								<label>Sex: </label>
+							</div>
+	 						<div class="col-md-8">
+	 							<select class="form-control">
+	 								<option value="M">Male</option>
+	 								<option value="F">Female</option>
+	 							</select>
+	 						</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4">
+								<label>Civil Status: </label>
+							</div>
+	 						<div class="col-md-8">
+	 							<select class="form-control">
+	 								<option value="single">Single</option>
+	 								<option value="married">Married</option>
+	 							</select>
+	 						</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4">
+								<label>Occupation: </label>
+							</div>
+	 						<div class="col-md-8">
+	 							<input type="text" class="form-control inputOccupation" id="inputOccupation" name="inputOccupation" placeholder="Occupation" />
+	 						</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4">
+								<label>Beneficiary: </label>
+							</div>
+	 						<div class="col-md-8">
+	 							<input type="text" class="form-control inputBeneficiary" id="inputBeneficiary" name="inputBeneficiary" placeholder="Beneficiary" />
+	 						</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4">
+								<label>Closed Account: </label>
+							</div>
+	 						<div class="col-md-8">
+	 							<select class="form-control">
+	 								<option value="yes">Yes</option>
+	 								<option value="no">No</option>
+	 							</select>
+	 						</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4">
+								<label>Business: </label>
+							</div>
+	 						<div class="col-md-8">
+	 							<input type="text" class="form-control inputBusiness" id="inputBusiness" name="inputBusiness" placeholder="Business" />
+	 						</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4">
+								<label>Date Closed: </label>
+							</div>
+	 						<div class="col-md-8">
+	 							<input type="text" class="form-control inputDateClosed" id="inputDateClosed" name="inputDateClosed" placeholder="Date Closed" />
+	 						</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-2"></div>
+	 						<div class="col-md-2"></div>
+							<div class="col-md-2">
+								<button class="btn btn-default cancel">Cancel</button>
+							</div>
+	 						<div class="col-md-2">
+	 							<button class="btn btn-default submit">Submit</button>
+	 						</div>
+	 						<div class="col-md-2"></div>
+	 						<div class="col-md-2"></div>
+	 		
+						</div>
+					</div>
+				</div>	
+			</div>	
+		</div>
+	</div>
 	
 	<!-- import of javascript files -->
-	<script type="text/javascript" th:src="@{/js/jquery-2.2.4.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/jquery-ui.js}"></script>
+	<script type="text/javascript" th:src="@{/js/bootstrap-table.js}"></script>
 	<script type="text/javascript" th:src="@{/js/app/init.js}"></script>
-	<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/app/subsidiaryledger.js}"></script>
+	<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
 	<!-- end -->
 	
 </body>
