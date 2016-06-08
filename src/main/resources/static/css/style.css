@@ -66,6 +66,12 @@ li:hover{
 li:hover h4{
 	font-weight: bold;
 }
+
+.active-li {
+	cursor: pointer;
+	background-color: #fff;
+}
+
 /* end Nav Class */
 
 /* Section Class */
@@ -109,7 +115,7 @@ footer {
 }
 
 .row .col-md-2 {
-	text-align: left;
+	
 }
 /* end Verifier Class */
 
