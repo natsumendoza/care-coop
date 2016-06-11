@@ -135,3 +135,7 @@ footer {
 .nameDiv {
 	text-align: left;
 }
+
+.form-group-align {
+	text-align: left !important;
+}

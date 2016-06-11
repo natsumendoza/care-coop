@@ -21,14 +21,12 @@
 			<div class="row row1">
 				<div class="col-md-2"><h4>Code:</h4></div>
 				<div class="col-md-2"><h4>
-					<select>
-						<option value="1234">1234</option>
-						<option value="4321">4321</option>
-						<option value="1324">1324</option>
-						<option value="3124">3124</option>
+					<select class="form-control selectCode">
+						<option value="1"></option>
 					</select>
 				</h4></div>
-				<div class="col-md-2"><h4>Month:</h4></div>
+				<div class="col-md-1"></div>
+				<div class="col-md-1"><h4>Month:</h4></div>
   				<div class="col-md-2"><h4>
   					<select>
   						<option value="1">January</option>
@@ -46,16 +44,14 @@
   					</select>
   				</h4></div>
   				<div class="col-md-2"></div>
-  				<div class="col-md-2"></div>
 			</div>
 			
 			<div class="row row2">
 				<div class="col-md-2"><h4>Name:</h4></div>
-				<div class="col-md-2"><h4>1234</h4></div>
-				<div class="col-md-2"><h4>Status:</h4></div>
+				<div class="col-md-3"><h4 class="nameDiv"></h4></div>
+				<div class="col-md-1"><h4>Status:</h4></div>
   				<div class="col-md-2"><h4>Jan</h4></div>
-  				<div class="col-md-2"></div>
-  				<div class="col-md-2"></div>
+  				<div class="col-md-1"></div>
 			</div>
 			
 			<div class="row">
@@ -93,56 +89,49 @@
 					<h4>Show Information</h4>
 				</div>
 				<div class="modal-body">
-					<div class="form-group">
+					<div class="form-group form-group-align">
 						<div class="row">
-							<div class="col-md-2">
+							<div class="col-md-4">
 								<label>Type: </label>
 							</div>
-  							<div class="col-md-2">
-  								<label>type</label>
+  							<div class="col-md-4">
+  								<label class="type"></label>
   							</div>
-  							<div class="col-md-2"></div>
-  							<div class="col-md-2"></div>
   							<div class="col-md-2"></div>
   							<div class="col-md-2"></div>
 						</div>    
 					</div>
-					<div class="form-group">
+					<div class="form-group form-group-align">
 						<div class="row">
-							<div class="col-md-2">
+							<div class="col-md-4">
 							<label>Area: </label>
 							</div>
-							<div class="col-md-2">
-								<label>area</label>
+							<div class="col-md-4">
+								<label class="area"></label>
 							</div>
 	                     	<div class="col-md-2"></div>
 	 						<div class="col-md-2"></div>
-	 						<div class="col-md-2"></div>
-	 						<div class="col-md-2"></div>
 						</div>
 					</div>
-					<div class="form-group">
+					<div class="form-group form-group-align">
 						<div class="row">
-							<div class="col-md-2">
+							<div class="col-md-4">
                         	<label>Credit Line: </label>
 	                        </div>
-	                        <div class="col-md-2">
-	                        	<label>credit line</label>
+	                        <div class="col-md-4">
+	                        	<label class="creditLine"></label>
 	                        </div>
 	                        <div class="col-md-2"></div>
 	 						<div class="col-md-2"></div>
-	 						<div class="col-md-2"></div>
-	 						<div class="col-md-2"></div>
 						</div>
 					</div>
-					<div class="form-group">
+					<div class="form-group form-group-align">
                         <div class="row">
-							<div class="col-md-2">
+							<div class="col-md-4">
 								<label>Address</label>
 							</div>
 	 						<div class="col-md-2"></div>
 							<div class="col-md-2"></div>
-	 						<div class="col-md-2"></div>
 	 						<div class="col-md-2"></div>
 	 						<div class="col-md-2"></div>
 						</div>
@@ -153,7 +142,7 @@
 	 							<label>Street: </label>
 	 						</div>
 							<div class="col-md-2">
-								<label>street</label>
+								<label class="street"></label>
 							</div>
 	 						<div class="col-md-2"></div>
 	 						<div class="col-md-2"></div>
@@ -166,7 +155,7 @@
 	 							<label>Town: </label>
 	 						</div>
 							<div class="col-md-2">
-								<label>town</label>
+								<label class="town"></label>
 							</div>
 	 						<div class="col-md-2"></div>
 	 						<div class="col-md-2"></div>
@@ -179,7 +168,7 @@
 	 							<label>City: </label>
 	 						</div>
 							<div class="col-md-2">
-								<label>city</label>
+								<label class="city"></label>
 							</div>
 	 						<div class="col-md-2"></div>
 	 						<div class="col-md-2"></div>
@@ -187,143 +176,123 @@
 						</div>
                         
 					</div>
-					<div class="form-group">
+					<div class="form-group form-group-align">
 						<div class="row">
-							<div class="col-md-2">
+							<div class="col-md-4">
 								<label>Telephone: </label>
 							</div>
-	 						<div class="col-md-2">
-	 							<label>telephone</label>
+	 						<div class="col-md-4">
+	 							<label class="telephone"></label>
 	 						</div>
 							<div class="col-md-2"></div>
 	 						<div class="col-md-2"></div>
-	 						<div class="col-md-2"></div>
-	 						<div class="col-md-2"></div>
 						</div>
 					</div>
-					<div class="form-group">
+					<div class="form-group form-group-align">
 						<div class="row">
-							<div class="col-md-2">
+							<div class="col-md-4">
 								<label>Birthday: </label>
 							</div>
-	 						<div class="col-md-2">
-	 							<label>birthday</label>
+	 						<div class="col-md-4">
+	 							<label class="bday"></label>
 	 						</div>
 							<div class="col-md-2"></div>
 	 						<div class="col-md-2"></div>
-	 						<div class="col-md-2"></div>
-	 						<div class="col-md-2"></div>
 						</div>
 					</div>
-					<div class="form-group">
+					<div class="form-group form-group-align">
 						<div class="row">
-							<div class="col-md-2">
+							<div class="col-md-4">
 								<label>Membership: </label>
 							</div>
-	 						<div class="col-md-2">
-	 							<label>membership</label>
+	 						<div class="col-md-4">
+	 							<label class="membership"></label>
 	 						</div>
 							<div class="col-md-2"></div>
 	 						<div class="col-md-2"></div>
-	 						<div class="col-md-2"></div>
-	 						<div class="col-md-2"></div>
 						</div>
 					</div>
-					<div class="form-group">
+					<div class="form-group form-group-align">
 						<div class="row">
-							<div class="col-md-2">
+							<div class="col-md-4">
 								<label>Sex: </label>
 							</div>
-	 						<div class="col-md-2">
-	 							<label>sex</label>
+	 						<div class="col-md-4">
+	 							<label class="sex"></label>
 	 						</div>
 							<div class="col-md-2"></div>
 	 						<div class="col-md-2"></div>
-	 						<div class="col-md-2"></div>
-	 						<div class="col-md-2"></div>
 						</div>
 					</div>
-					<div class="form-group">
+					<div class="form-group form-group-align">
 						<div class="row">
-							<div class="col-md-2">
+							<div class="col-md-4">
 								<label>Civil Status: </label>
 							</div>
-	 						<div class="col-md-2">
-	 							<label>civil status</label>
+	 						<div class="col-md-4">
+	 							<label class="civilStatus"></label>
 	 						</div>
 							<div class="col-md-2"></div>
 	 						<div class="col-md-2"></div>
-	 						<div class="col-md-2"></div>
-	 						<div class="col-md-2"></div>
 						</div>
 					</div>
-					<div class="form-group">
+					<div class="form-group form-group-align">
 						<div class="row">
-							<div class="col-md-2">
+							<div class="col-md-4">
 								<label>Occupation: </label>
 							</div>
-	 						<div class="col-md-2">
-	 							<label>occupation</label>
+	 						<div class="col-md-4">
+	 							<label class="occupation"></label>
 	 						</div>
 							<div class="col-md-2"></div>
 	 						<div class="col-md-2"></div>
-	 						<div class="col-md-2"></div>
-	 						<div class="col-md-2"></div>
 						</div>
 					</div>
-					<div class="form-group">
+					<div class="form-group form-group-align">
 						<div class="row">
-							<div class="col-md-2">
+							<div class="col-md-4">
 								<label>Beneficiary: </label>
 							</div>
-	 						<div class="col-md-2">
-	 							<label>beneficiary</label>
+	 						<div class="col-md-4">
+	 							<label class="beneficiary"></label>
 	 						</div>
 							<div class="col-md-2"></div>
 	 						<div class="col-md-2"></div>
-	 						<div class="col-md-2"></div>
-	 						<div class="col-md-2"></div>
 						</div>
 					</div>
-					<div class="form-group">
+					<div class="form-group form-group-align">
 						<div class="row">
-							<div class="col-md-2">
+							<div class="col-md-4">
 								<label>Closed Account: </label>
 							</div>
-	 						<div class="col-md-2">
-	 							<label>true</label>
+	 						<div class="col-md-4">
+	 							<label class="closedAccount"></label>
 	 						</div>
 							<div class="col-md-2"></div>
 	 						<div class="col-md-2"></div>
-	 						<div class="col-md-2"></div>
-	 						<div class="col-md-2"></div>
 						</div>
 					</div>
-					<div class="form-group">
+					<div class="form-group form-group-align">
 						<div class="row">
-							<div class="col-md-2">
+							<div class="col-md-4">
 								<label>Business: </label>
 							</div>
-	 						<div class="col-md-2">
-	 							<label>business</label>
+	 						<div class="col-md-4">
+	 							<label class="business"></label>
 	 						</div>
 							<div class="col-md-2"></div>
-	 						<div class="col-md-2"></div>
-	 						<div class="col-md-2"></div>
 	 						<div class="col-md-2"></div>
 						</div>
 					</div>
-					<div class="form-group">
+					<div class="form-group form-group-align">
 						<div class="row">
-							<div class="col-md-2">
+							<div class="col-md-4">
 								<label>Date Closed: </label>
 							</div>
-	 						<div class="col-md-2">
-	 							<label>date</label>
+	 						<div class="col-md-4">
+	 							<label class="dateClosed"></label>
 	 						</div>
 							<div class="col-md-2"></div>
-	 						<div class="col-md-2"></div>
-	 						<div class="col-md-2"></div>
 	 						<div class="col-md-2"></div>
 						</div>
 					</div>
@@ -335,7 +304,6 @@
 	<!-- import of javascript files -->
 	<script type="text/javascript" th:src="@{/js/jquery-ui.js}"></script>
 	<script type="text/javascript" th:src="@{/js/bootstrap-table.js}"></script>
-	<script type="text/javascript" th:src="@{/js/app/init.js}"></script>
 	<script type="text/javascript" th:src="@{/js/app/verifier.js}"></script>
 	<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
 	<!-- end -->
