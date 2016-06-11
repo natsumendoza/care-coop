@@ -100,7 +100,7 @@ footer {
 /* Verifier Class */
 .header-div {
 	border: 1px solid #bdc3c7;
-	height: 150px;
+	height: 164px;
 }
 
 .row1 {
@@ -119,7 +119,19 @@ footer {
 }
 /* end Verifier Class */
 
-/* custom loading */
+.bootstrap-table {
+	width: 85% !important;
+	margin: 0 auto;
+}
 
+.th-inner {
+	text-align: center !important;
+}
 
-/* end custom loading */
+.totalDiv {
+	margin-left: 34px !important;
+}
+
+.nameDiv {
+	text-align: left;
+}
