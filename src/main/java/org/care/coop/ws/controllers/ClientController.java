@@ -1,5 +1,6 @@
 package org.care.coop.ws.controllers;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.care.coop.ws.entities.ClientEntity;
@@ -27,7 +28,11 @@ public class ClientController {
 	@RequestMapping(value="/care-coop/createclient", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<ClientEntity> createClient(@RequestBody ClientEntity clientEntity) throws Exception {
 		
-		logger.info("pasok");
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		
+		clientEntity.setBirthday(formatter.parse(formatter.format(clientEntity.getBirthday())));
+		
+		logger.info(clientEntity.getBirthday().toString());
 		ClientEntity createdClientEntity = clientServiceInterface.createClient(clientEntity);
 		
 		return new ResponseEntity<ClientEntity>(createdClientEntity, HttpStatus.CREATED);

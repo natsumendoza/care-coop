@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity(name="clients")
 public class ClientEntity {
@@ -27,6 +29,7 @@ public class ClientEntity {
 	private AddressEntity address;
 	
 	private String telephone;
+	@Temporal(TemporalType.DATE)
 	private Date birthday;
 	private String membership;
 	private String sex;

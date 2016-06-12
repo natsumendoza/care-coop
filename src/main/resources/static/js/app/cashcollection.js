@@ -62,7 +62,13 @@ $('.add-entry-submit').click(function () {
 });
 
 $('.submit-entry').click(function() {
+	var title = $('.particulars').val();
+	var debit = total;
+	var credit = 0;
+	postJournalVoucher(code, title, debit, credit);
 	
+	$('.totalDiv').text("0");
+	$table.bootstrapTable('removeAll');
 });
 
 var code = 0;
@@ -82,9 +88,15 @@ $('.selectCode').change(function() {
 	});
 });
 
+var rows = [];
+
 function inputData(particulars, amount) {
     var row = [];
     row.push({
+        particulars: particulars,
+        amount: amount
+    });
+    rows.push({
         particulars: particulars,
         amount: amount
     });
@@ -93,4 +105,50 @@ function inputData(particulars, amount) {
 var clearFields = function() {
 	$('.inputParticulars').val("");
 	$('.inputAmount').val("");
+}
+
+var postJournalVoucher = function(code, title, debit, credit) {
+	
+	var rawjson = {
+		memberCode: code,
+		title: title,
+		debit: debit,
+		credit: credit,
+		accountsReceivables: JSON.parse(postAccountsReceivables()),
+		createdDate: new Date()
+	};
+	
+	
+	var jsondata = JSON.stringify(rawjson);
+	
+	console.log(jsondata);
+	
+	$.ajax({ 
+		url: '/care-coop/create-journal-voucher', 
+		type: 'POST', 			  		    	 
+	    data: jsondata,
+	  	contentType: 'application/json',
+	    success: function(data) { 				  		    				  		    	
+	    		alert("Journal Voucher successfully created!");
+		    },
+		    error: function(error, status, er){
+		    	console.log(error);
+		    }
+   	});
+	
+}
+
+var postAccountsReceivables = function() {
+	
+	jsonRowAR = [];
+	
+	$.each(rows, function(i, item) {
+		jsonRowAR.push({
+			title: 'Receivable - ' + item.particulars,
+			debit: 0,
+			credit: item.amount,
+			dateCreated: new Date()
+		});
+	});
+	return JSON.stringify(jsonRowAR);
 }

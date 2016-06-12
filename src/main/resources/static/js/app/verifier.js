@@ -46,7 +46,8 @@ var loadInfo = function(code) {
 		url: '/care-coop/get-client-by-code/' + code, 
 		type: 'GET', 			  		    	 
 	  	contentType: 'application/json',
-	    success: function(data) { 				  		    				  		    	
+	    success: function(data) {
+	    	console.log(data);
 	    	$('.type').text(data.type);
 	    	$('.area').text(data.area);
 	    	$('.creditLine').text(data.creditLine);

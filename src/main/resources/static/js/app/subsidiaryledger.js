@@ -8,7 +8,9 @@ $('.cancel').click(function() {
 	$modal.modal('hide');
 });
 
-$('#inputBday').datepicker();
+$('#inputBday').datepicker({
+	dateFormat: 'yy-mm-dd'
+});
 $('#inputDateClosed').datepicker();
 
 $('.add-info-submit').click(function() {
@@ -46,7 +48,7 @@ $('.add-info-submit').click(function() {
 			city: city
 		},
 		telephone: telephone,
-		birthday: new Date(),
+		birthday: birthday,
 		membership: membership,
 		sex: sex,
 		civilStatus: civilStatus,
@@ -56,7 +58,7 @@ $('.add-info-submit').click(function() {
 		},
 //		closedAccount: closedAccount,
 		business: business,
-		dateClosed: new Date()
+		dateClosed: dateClosed
 	};
 	
 	var jsondata = JSON.stringify(rawjson);
@@ -73,5 +75,7 @@ $('.add-info-submit').click(function() {
 		    	console.log(error);
 		    }
    	});
+	
+	$modal.modal('hide');
 	
 });
