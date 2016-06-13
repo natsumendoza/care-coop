@@ -34,6 +34,7 @@ $('.selectCode').change(function() {
 	  	contentType: 'application/json',
 	    success: function(data) { 				  		    				  		    	
 	    	$('.nameDiv').text(data.name);
+	    	$('.statusDiv').text(data.status);
 		},
 		    error: function(error, status, er){
 		    console.log(error);

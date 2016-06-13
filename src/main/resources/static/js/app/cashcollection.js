@@ -114,6 +114,7 @@ var postJournalVoucher = function(code, title, debit, credit) {
 		title: title,
 		debit: debit,
 		credit: credit,
+		particulars: 'Cash',
 		accountsReceivables: JSON.parse(postAccountsReceivables()),
 		createdDate: new Date()
 	};

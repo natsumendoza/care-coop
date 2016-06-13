@@ -79,3 +79,40 @@ $('.add-info-submit').click(function() {
 	$modal.modal('hide');
 	
 });
+
+//get all Member codes
+$.ajax({ 
+	url: '/care-coop/get-clients/', 
+	type: 'GET', 			  		    	 
+  	contentType: 'application/json',
+    success: function(data) { 				  		    				  		    	
+    	$.each(data, function(index, item) {
+    		$('.selectCode').append($('<option>', {
+    			value: item.code,
+    			text: item.code
+    		}));
+    	});
+	},
+	    error: function(error, status, er){
+	    console.log(error);
+	}
+});
+// end
+
+var code = 0;
+
+$('.selectCode').change(function() {
+	code = $(this).val();
+	$.ajax({ 
+		url: '/care-coop/get-client-by-code/' + code, 
+		type: 'GET', 			  		    	 
+	  	contentType: 'application/json',
+	    success: function(data) { 				  		    				  		    	
+	    	$('.nameDiv').text(data.name);
+	    	$('.statusDiv').text(data.status);
+		},
+		    error: function(error, status, er){
+		    console.log(error);
+		}
+	});
+});

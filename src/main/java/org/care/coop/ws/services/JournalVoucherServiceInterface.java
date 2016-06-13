@@ -9,7 +9,7 @@ public interface JournalVoucherServiceInterface {
 
 	public JournalVoucherEntity createJournalVoucher(JournalVoucherEntity journalVoucherEntity);
 	public List<JournalVoucherEntity> getAllJournalVouchers();
-	public JournalVoucherEntity getJournalVoucherByMemberCode(Long code);
-	public JournalVoucherEntity getJournalVoucherByMemberCodeAndCreatedDate(Long code, Date date);
+	public List<JournalVoucherEntity> getJournalVoucherByMemberCode(Long code);
+	public List<JournalVoucherEntity> getJournalVoucherByMemberCodeAndCreatedDate(Long code, Date date);
 	
 }

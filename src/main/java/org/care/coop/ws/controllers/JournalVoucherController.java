@@ -39,21 +39,21 @@ public class JournalVoucherController {
 		
 	}
 	
-	@RequestMapping(value="/care-coop/get-journal-voucher-by-member-code/{code}", method=RequestMethod.GET, consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<JournalVoucherEntity> getJournalVoucherByMemberCode(@PathVariable Long code) {
+	@RequestMapping(value="/care-coop/get-journal-voucher-by-member-code/{code}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<JournalVoucherEntity>> getJournalVoucherByMemberCode(@PathVariable Long code) {
+		System.out.println("pasok");
+		List<JournalVoucherEntity> journalVoucherList = journalVoucherServiceInterface.getJournalVoucherByMemberCode(code);
 		
-		JournalVoucherEntity journalVoucher = journalVoucherServiceInterface.getJournalVoucherByMemberCode(code);
-		
-		return new ResponseEntity<JournalVoucherEntity>(journalVoucher, HttpStatus.OK);
+		return new ResponseEntity<List<JournalVoucherEntity>>(journalVoucherList, HttpStatus.OK);
 		
 	}
 	
-	@RequestMapping(value="/care-coop/get-journal-voucher-by-member-code-and-created-date/{code}/{date}", method=RequestMethod.GET, consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<JournalVoucherEntity> getJournalVoucherByMemberCodeAndCreatedDate(@PathVariable Long code, @PathVariable Date date) {
+	@RequestMapping(value="/care-coop/get-journal-voucher-by-member-code-and-created-date/{code}/{date}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<JournalVoucherEntity>> getJournalVoucherByMemberCodeAndCreatedDate(@PathVariable Long code, @PathVariable Date date) {
 		
-		JournalVoucherEntity journalVoucher = journalVoucherServiceInterface.getJournalVoucherByMemberCodeAndCreatedDate(code, date);
+		List<JournalVoucherEntity> journalVoucherList = journalVoucherServiceInterface.getJournalVoucherByMemberCodeAndCreatedDate(code, date);
 		
-		return new ResponseEntity<JournalVoucherEntity>(journalVoucher, HttpStatus.OK);
+		return new ResponseEntity<List<JournalVoucherEntity>>(journalVoucherList, HttpStatus.OK);
 		
 	}
 	

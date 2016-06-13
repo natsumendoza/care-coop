@@ -30,20 +30,21 @@ public class JournalVoucherServiceImpl implements JournalVoucherServiceInterface
 		return journalVoucherList;
 	}
 
-	@Override
-	public JournalVoucherEntity getJournalVoucherByMemberCode(Long code) {
 
-		JournalVoucherEntity journalVoucher = journalVoucherRepository.findByMemberCode(code);
+	@Override
+	public List<JournalVoucherEntity> getJournalVoucherByMemberCode(Long code) {
+		List<JournalVoucherEntity> journalVoucherList = journalVoucherRepository.findByMemberCode(code);
 		
-		return journalVoucher;
+		return journalVoucherList;
 	}
 
 	@Override
-	public JournalVoucherEntity getJournalVoucherByMemberCodeAndCreatedDate(Long code, Date date) {
+	public List<JournalVoucherEntity> getJournalVoucherByMemberCodeAndCreatedDate(Long code, Date date) {
 
-		JournalVoucherEntity journalVoucher = journalVoucherRepository.findByMemberCodeAndCreatedDate(code, date);
+		List<JournalVoucherEntity> journalVoucherList = journalVoucherRepository.findByMemberCodeAndCreatedDate(code, date);
 		
-		return journalVoucher;
+		return journalVoucherList;
+		
 	}
 
 }

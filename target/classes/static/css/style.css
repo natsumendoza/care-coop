@@ -103,6 +103,10 @@ footer {
 	height: 164px;
 }
 
+.header-div-1 {
+	border: 1px solid #bdc3c7;
+}
+
 .row1 {
 	margin-top: 23px;
 }
@@ -138,4 +142,13 @@ footer {
 
 .form-group-align {
 	text-align: left !important;
+}
+
+.custom-table {
+	width: 85% !important;
+	margin: 0 auto;
+}
+
+.custom-table th {
+	text-align: center;
 }

@@ -15,10 +15,50 @@
 </head>
 <body>
 	
-	<h1>Journal Voucher</h1>
+	<div class="journal-voucher-body">
+		
+		<div class="header-div-1">
+			<div class="row row1">
+				<div class="col-md-2"><h4>Code:</h4></div>
+				<div class="col-md-2"><h4>
+					<select class="form-control selectCode">
+						<option value="1"></option>
+					</select>
+				</h4></div>
+				<div class="col-md-2"></div>
+  				<div class="col-md-2"></div>
+  				<div class="col-md-2"></div>
+  				<div class="col-md-2"></div>
+			</div>
+			
+			<div class="row row2">
+				<div class="col-md-2"><h4>Name:</h4></div>
+				<div class="col-md-4"><h4 class="nameDiv"></h4></div>
+  				<div class="col-md-2"></div>
+  				<div class="col-md-2"></div>
+  				<div class="col-md-2"></div>
+			</div>
+	
+			<div class="body-div">
+				<table id="table" class="table custom-table">
+					<thead>
+						<tr>
+							<th>Date</th>
+							<th>Particulars</th>
+							<th>Debit</th>
+							<th>Credit</th>
+						</tr>
+					</thead>
+					<tr class="trData">
+					</tr>
+				</table>
+			</div>
+			
+		</div>
+		
+	</div>
 	
 	<!-- import of javascript files -->
-	<script type="text/javascript" th:src="@{/js/jquery-ui.js}"></script>
 	<script type="text/javascript" th:src="@{/js/bootstrap-table.js}"></script>
 	<script type="text/javascript" th:src="@{/js/app/journalvoucher.js}"></script>
 	<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>

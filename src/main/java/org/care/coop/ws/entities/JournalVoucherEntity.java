@@ -22,19 +22,13 @@ public class JournalVoucherEntity {
 	private Long id;
 	private Long memberCode;
 	
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private Long transactionCode;
 	private String title;
 	
 	@OneToMany(cascade=CascadeType.ALL)
 	private List<AccountsReceivableEntity> accountsReceivables;
 	
-	public Long getTransactionCode() {
-		return transactionCode;
-	}
-	public void setTransactionCode(Long transactionCode) {
-		this.transactionCode = transactionCode;
-	}
 	@Column(nullable=true)
 	private BigInteger debit;
 	
@@ -43,6 +37,21 @@ public class JournalVoucherEntity {
 	
 	@Temporal(TemporalType.DATE)
 	private Date createdDate;
+	
+	private String particulars;
+	
+	public String getParticulars() {
+		return particulars;
+	}
+	public void setParticulars(String particulars) {
+		this.particulars = particulars;
+	}
+	public Long getTransactionCode() {
+		return transactionCode;
+	}
+	public void setTransactionCode(Long transactionCode) {
+		this.transactionCode = transactionCode;
+	}
 	
 	public List<AccountsReceivableEntity> getAccountsReceivables() {
 		return accountsReceivables;
