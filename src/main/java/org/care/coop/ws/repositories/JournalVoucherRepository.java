@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface JournalVoucherRepository extends JpaRepository<JournalVoucherEntity, Long> {
 	
-	public List<JournalVoucherEntity> findByMemberCode(Long code);
-	public List<JournalVoucherEntity> findByMemberCodeAndCreatedDate(Long code, Date date);
+	public List<JournalVoucherEntity> findByClientNo(Long clientNo);
+	public List<JournalVoucherEntity> findByClientNoAndCreatedDate(Long clientNo, Date date);
 	
 }

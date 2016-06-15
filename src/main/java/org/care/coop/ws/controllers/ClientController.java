@@ -40,9 +40,9 @@ public class ClientController {
 	}
 	
 	@RequestMapping(value="/care-coop/get-client-by-code/{code}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<ClientEntity> getClientByCode(@PathVariable int code) {
+	public ResponseEntity<ClientEntity> getClientByCode(@PathVariable Long code) {
 		
-		ClientEntity clientEntity = clientServiceInterface.getClientByCode(code);
+		ClientEntity clientEntity = clientServiceInterface.getClientByClientNo(code);
 		
 		return new ResponseEntity<ClientEntity>(clientEntity, HttpStatus.OK);
 	}

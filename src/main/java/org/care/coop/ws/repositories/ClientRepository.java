@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ClientRepository extends JpaRepository<ClientEntity, Long> {
 
-	public ClientEntity findByCode(int code);
+	public ClientEntity findByClientNo(Long clientNo);
 	
 }

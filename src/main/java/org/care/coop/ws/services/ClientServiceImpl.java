@@ -22,8 +22,8 @@ public class ClientServiceImpl implements ClientServiceInterface{
 	}
 
 	@Override
-	public ClientEntity getClientByCode(int code) {
-		ClientEntity clientEntity = clientRepository.findByCode(code);
+	public ClientEntity getClientByClientNo(Long code) {
+		ClientEntity clientEntity = clientRepository.findByClientNo(code);
 		return clientEntity;
 	}
 

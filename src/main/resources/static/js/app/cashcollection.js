@@ -36,8 +36,8 @@ $.ajax({
     success: function(data) { 				  		    				  		    	
     	$.each(data, function(index, item) {
     		$('.selectCode').append($('<option>', {
-    			value: item.code,
-    			text: item.code
+    			value: item.clientNo,
+    			text: item.clientNo
     		}));
     	});
 	},
@@ -110,7 +110,7 @@ var clearFields = function() {
 var postJournalVoucher = function(code, title, debit, credit) {
 	
 	var rawjson = {
-		memberCode: code,
+		clientNo: code,
 		title: title,
 		debit: debit,
 		credit: credit,

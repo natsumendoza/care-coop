@@ -8,8 +8,8 @@ $.ajax({
     success: function(data) { 				  		    				  		    	
     	$.each(data, function(index, item) {
     		$('.selectCode').append($('<option>', {
-    			value: item.code,
-    			text: item.code
+    			value: item.clientNo,
+    			text: item.clientNo
     		}));
     	});
 	},
@@ -49,7 +49,7 @@ var loadTable = function(code) {
 	    		$('.custom-table > tbody:first').append("<tr><td>"+value.createdDate+"</td><td align='left'>"+value.particulars+"</td><td>"+value.debit+"</td><td>"+value.credit+"</td></tr>");
 		    	
 		    	$.each(value.accountsReceivables, function(i, item) {
-		    		$('.custom-table > tbody:first').append("<tr><td></td><td>"+item.title+"</td><td>"+item.debit+"</td><td>"+item.credit+"</td></tr>");
+		    		$('.custom-table > tbody:first').append("<tr><td>" + value.createdDate + "</td><td>"+item.title+"</td><td>"+item.debit+"</td><td>"+item.credit+"</td></tr>");
 		    	});
 	    	});
 	    	
