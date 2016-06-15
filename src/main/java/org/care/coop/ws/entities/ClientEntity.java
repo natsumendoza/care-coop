@@ -18,7 +18,7 @@ public class ClientEntity {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	private Long clientNo;
+	private int code;
 	private String name;
 	private String status;
 	private String type;
@@ -53,12 +53,12 @@ public class ClientEntity {
 		this.id = id;
 	}
 
-	public Long getClientNo() {
-		return clientNo;
+	public int getCode() {
+		return code;
 	}
 
-	public void setClientNo(Long accountNo) {
-		this.clientNo = accountNo;
+	public void setCode(int code) {
+		this.code = code;
 	}
 
 	public String getName() {

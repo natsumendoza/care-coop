@@ -20,10 +20,9 @@ public class JournalVoucherEntity {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	private Long clientNo;
-	private Long accountNo;
+	private Long memberCode;
 	
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private Long transactionCode;
 	private String title;
 	
@@ -40,13 +39,6 @@ public class JournalVoucherEntity {
 	private Date createdDate;
 	
 	private String particulars;
-	
-	public Long getAccountNo() {
-		return accountNo;
-	}
-	public void setAccountNo(Long accountNo) {
-		this.accountNo = accountNo;
-	}
 	
 	public String getParticulars() {
 		return particulars;
@@ -68,11 +60,11 @@ public class JournalVoucherEntity {
 		this.accountsReceivables = accountsReceivables;
 	}
 	
-	public Long getClientNo() {
-		return clientNo;
+	public Long getMemberCode() {
+		return memberCode;
 	}
-	public void setClientNo(Long clientNo) {
-		this.clientNo = clientNo;
+	public void setMemberCode(Long memberCode) {
+		this.memberCode = memberCode;
 	}
 	
 	public Date getCreatedDate() {

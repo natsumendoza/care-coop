@@ -8,7 +8,7 @@ public class HomeController {
 
 	@RequestMapping("/care-coop")
 	public String index() {
-		return "/index";
+		return "/index/index";
 	}
 	
 	@RequestMapping("/care-coop/home")

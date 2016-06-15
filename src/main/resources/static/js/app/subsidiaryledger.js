@@ -36,7 +36,7 @@ $('.add-info-submit').click(function() {
 	var dateClosed = $('.inputDateClosed').val();
 	
 	var rawjson = {
-		clientNo: code,
+		code: code,
 		name: name,
 		status: status,
 		type: type,
