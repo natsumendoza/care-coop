@@ -15,8 +15,8 @@ $.ajax({
     success: function(data) { 				  		    				  		    	
     	$.each(data, function(index, item) {
     		$('.selectCode').append($('<option>', {
-    			value: item.code,
-    			text: item.code
+    			value: item.clientNo,
+    			text: item.clientNo
     		}));
     	});
 	},

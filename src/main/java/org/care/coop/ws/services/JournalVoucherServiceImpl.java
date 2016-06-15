@@ -33,7 +33,7 @@ public class JournalVoucherServiceImpl implements JournalVoucherServiceInterface
 
 	@Override
 	public List<JournalVoucherEntity> getJournalVoucherByMemberCode(Long code) {
-		List<JournalVoucherEntity> journalVoucherList = journalVoucherRepository.findByMemberCode(code);
+		List<JournalVoucherEntity> journalVoucherList = journalVoucherRepository.findByClientNo(code);
 		
 		return journalVoucherList;
 	}
@@ -41,7 +41,7 @@ public class JournalVoucherServiceImpl implements JournalVoucherServiceInterface
 	@Override
 	public List<JournalVoucherEntity> getJournalVoucherByMemberCodeAndCreatedDate(Long code, Date date) {
 
-		List<JournalVoucherEntity> journalVoucherList = journalVoucherRepository.findByMemberCodeAndCreatedDate(code, date);
+		List<JournalVoucherEntity> journalVoucherList = journalVoucherRepository.findByClientNoAndCreatedDate(code, date);
 		
 		return journalVoucherList;
 		
