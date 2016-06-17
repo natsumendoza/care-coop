@@ -1,5 +1,7 @@
 package org.care.coop.ws.entities;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +19,16 @@ public class ClientAccountEntity {
 	private Long clientNo;
 	
 	private String title;
+	
+	private Date createdDate;
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
 
 	public String getTitle() {
 		return title;
