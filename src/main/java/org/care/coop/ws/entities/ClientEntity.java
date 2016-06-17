@@ -44,6 +44,9 @@ public class ClientEntity {
 	private String business;
 	
 	private Date dateClosed;
+	
+	@Temporal(TemporalType.DATE)
+	private Date createdDate;
 
 	public Long getId() {
 		return id;
