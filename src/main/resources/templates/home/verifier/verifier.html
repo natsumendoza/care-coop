@@ -19,6 +19,21 @@
 		
 		<div class="header-div">
 			<div class="row row1">
+				<div class="col-md-2"><h4>Type.:</h4></div>
+				<div class="col-md-2"><h4>
+					<select class="form-control typeSelect">
+						<option value="1"></option>
+						<option value="member">Member</option>
+						<option value="supplier">Supplier</option>
+					</select>
+				</h4></div>
+				<div class="col-md-1"></div>
+				<div class="col-md-1"></div>
+  				<div class="col-md-2"></div>
+  				<div class="col-md-2"></div>
+			</div>
+		
+			<div class="row row1 rowHide">
 				<div class="col-md-2"><h4>Client No.:</h4></div>
 				<div class="col-md-2"><h4>
 					<select class="form-control selectCode">
@@ -46,7 +61,7 @@
   				<div class="col-md-2"></div>
 			</div>
 			
-			<div class="row row2">
+			<div class="row row2 rowHide">
 				<div class="col-md-2"><h4>Name:</h4></div>
 				<div class="col-md-3"><h4 class="nameDiv"></h4></div>
 				<div class="col-md-1"><h4>Status:</h4></div>
@@ -88,6 +103,19 @@
 					<h4>Show Information</h4>
 				</div>
 				<div class="modal-body">
+					<div class="form-group form-group-align">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="profile-pic">
+									<img alt="Sample profile pic" th:src="@{/images/sampe-profile-pic.jpeg}" />
+								</div>
+							</div>
+  							<div class="col-md-4">
+  							</div>
+  							<div class="col-md-2"></div>
+  							<div class="col-md-2"></div>
+						</div>    
+					</div>
 					<div class="form-group form-group-align">
 						<div class="row">
 							<div class="col-md-4">
@@ -293,6 +321,26 @@
 	 						</div>
 							<div class="col-md-2"></div>
 	 						<div class="col-md-2"></div>
+						</div>
+					</div>
+					<div class="form-group form-group-align">
+						<div class="row">
+							<div class="col-md-4">
+								<label>Address Sketch: </label>
+							</div>
+	 						<div class="col-md-4">
+	 						</div>
+							<div class="col-md-2"></div>
+	 						<div class="col-md-2"></div>
+						</div>
+					</div>
+					<div class="form-group form-group-align">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="address-sketch">
+									<img alt="Sample address sketch" th:src="@{/images/sample-sketch.png}" />
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>	

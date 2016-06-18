@@ -2,9 +2,15 @@ var $modal = $('#verifier-modal').modal({ show: false });
 
 var code = 0;
 
+$('.rowHide').hide();
+
 $('.show-info').click(function () {
 	loadInfo(code);
 	$modal.modal('show');
+});
+
+$('.typeSelect').change(function() {
+	$('.rowHide').show();
 });
 
 //get all Member codes

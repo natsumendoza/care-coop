@@ -156,3 +156,22 @@ footer {
 .img-logo-container {
 	margin-top: 15px;
 }
+
+.profile-pic {
+	border: 1px solid #bdc3c7;
+	height: 150px;
+}
+
+.profile-pic img {
+	width: 168px;
+	height: 150px;
+}
+
+.address-sketch {
+	border: 1px solid #bdc3c7;
+	height: 300px;
+}
+
+.address-sketch img{
+	height: 298px;
+}
