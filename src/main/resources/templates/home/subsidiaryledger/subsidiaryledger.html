@@ -19,7 +19,7 @@
 		
 		<div class="header-div">
 			<div class="row row1">
-				<div class="col-md-2"><h4>Code:</h4></div>
+				<div class="col-md-2"><h4>Client No.:</h4></div>
 				<div class="col-md-3"><h4>
 					<select class="form-control selectCode">
 						<option value="1"></option>
@@ -47,7 +47,7 @@
 			</div>
 			
 			<div class="row row2">
-				<div class="col-md-2"><h4>Name:</h4></div>
+				<div class="col-md-2"><h4 class="name-div">Name:</h4></div>
 				<div class="col-md-3"><h4 class="nameDiv"></h4></div>
 				<div class="col-md-2"><h4>Status:</h4></div>
   				<div class="col-md-2"><h4 class="statusDiv"></h4></div>
@@ -65,16 +65,27 @@
 			</div>
 			
 			<div class="body-div">
-				<table id="table" data-toggle="table" data-toolbar="#toolbar">
+				<table class="table custom-table">
 					<thead>
 						<tr>
-							<th data-field="">Date</th>
-							<th data-field="">Reference</th>
-							<th data-field="">Debit</th>
-							<th data-field="">Credit</th>
-							<th data-field="">Balance</th>
+							<th>Date</th>
+							<th>Account</th>
+							<th>Debit</th>
+							<th>Credit</th>
+							<th>Balance</th>
 						</tr>
 					</thead>
+					<tr class="trData">
+					</tr>
+					<tfoot>
+						<tr>
+							<td>Total</td>
+							<td></td>
+							<td><strong class="tdTotalDebit"></strong></td>
+							<td><strong class="tdTotalCredit"></strong></td>
+							<td></td>
+						</tr>
+					</tfoot>
 				</table>
 			</div>
 		</div>

@@ -3,7 +3,19 @@ body {
 }
 
 .header-wrapper {
-	text-align: center;
+}
+
+.header-wrapper h3 {
+	float: left;
+	margin-top: 33px;
+	margin-left: 10px;
+	color: #34495e;
+	font-size: 29px;
+}
+
+.header-wrapper h3:hover {
+	color: #ecf0f1;
+	cursor: pointer;
 }
 
 .section-wrapper {
@@ -174,4 +186,20 @@ footer {
 
 .address-sketch img{
 	height: 298px;
+}
+
+.add-info {
+	margin-left: -100px;
+}
+
+.name-div {
+	margin-left: -29px;
+}
+
+.statusDiv {
+	text-align: left;
+}
+
+.acc-no-div {
+	margin-left: 22px;
 }

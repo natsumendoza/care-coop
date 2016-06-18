@@ -15,10 +15,81 @@
 </head>
 <body>
 	
-	<h1>General Ledger</h1>
+	<div class="verifier-body">
+		
+		<div class="header-div">
+			<div class="row row1">
+				<div class="col-md-2"><h4>Client No.:</h4></div>
+				<div class="col-md-3"><h4>
+					<select class="form-control selectCode">
+						<option value="1"></option>
+					</select>
+				</h4></div>
+				<div class="col-md-2"><h4>Month:</h4></div>
+  				<div class="col-md-2"><h4>
+  					<select class="form-control selectMonth">
+  						<option value="0"></option>
+  						<option value="1">January</option>
+  						<option value="2">February</option>
+  						<option value="3">March</option>
+  						<option value="4">April</option>
+  						<option value="5">May</option>
+  						<option value="6">June</option>
+  						<option value="7">July</option>
+  						<option value="8">August</option>
+  						<option value="9">September</option>
+  						<option value="10">October</option>
+  						<option value="11">November</option>
+  						<option value="12">December</option>
+  					</select>
+  				</h4></div>
+  				<div class="col-md-2"></div>
+  				<div class="col-md-1"></div>
+			</div>
+			
+			<div class="row row2">
+				<div class="col-md-2"><h4 class="name-div">Name:</h4></div>
+				<div class="col-md-3"><h4 class="nameDiv"></h4></div>
+				<div class="col-md-2"><h4>Status:</h4></div>
+  				<div class="col-md-2"><h4 class="statusDiv"></h4></div>
+  				<div class="col-md-2"></div>
+  				<div class="col-md-1"></div>
+			</div>
+			
+			<div class="row row1 accNoHide">
+				<div class="col-md-2"><h4 class="acc-no-div">Account No.:</h4></div>
+				<div class="col-md-2"><h4>
+					<select class="form-control selectAccountCode">
+						<option value="1"></option>
+					</select>
+				</h4></div>
+				<div class="col-md-2">
+				</div>
+  				<div class="col-md-2"></div>
+  				<div class="col-md-2"></div>
+  				<div class="col-md-2"></div>
+			</div>
+			
+			<div class="body-div">
+				<table class="table custom-table">
+					<thead>
+						<tr>
+							<th>Date</th>
+							<th>Particulars</th>
+							<th>Debit</th>
+							<th>Credit</th>
+							<th>Balance</th>
+						</tr>
+					</thead>
+					<tr class="trData">
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+	</div>
 	
 	<!-- import of javascript files -->
-	<script type="text/javascript" th:src="@{/js/jquery-ui.js}"></script>
 	<script type="text/javascript" th:src="@{/js/bootstrap-table.js}"></script>
 	<script type="text/javascript" th:src="@{/js/app/generalledger.js}"></script>
 	<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>

@@ -29,3 +29,8 @@ $('.setup-computation').click(function () {
 $('.utility').click(function () {
 	$('.main-body').load('/care-coop/utility');
 });
+
+$('.home-link').click(function() {
+	window.location.href = "/care-coop/home";
+});
+

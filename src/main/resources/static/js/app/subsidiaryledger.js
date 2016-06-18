@@ -88,8 +88,8 @@ $.ajax({
     success: function(data) { 				  		    				  		    	
     	$.each(data, function(index, item) {
     		$('.selectCode').append($('<option>', {
-    			value: item.code,
-    			text: item.code
+    			value: item.clientNo,
+    			text: item.clientNo
     		}));
     	});
 	},
@@ -110,9 +110,34 @@ $('.selectCode').change(function() {
 	    success: function(data) { 				  		    				  		    	
 	    	$('.nameDiv').text(data.name);
 	    	$('.statusDiv').text(data.status);
+	    	loadSubLedgerTable(code);
 		},
 		    error: function(error, status, er){
 		    console.log(error);
 		}
 	});
 });
+
+var loadSubLedgerTable = function(code) {
+	var totalDebit = 0;
+	var totalCredit = 0;
+	$('.custom-table > tbody:first').html("");
+	$.ajax({ 
+		url: '/care-coop/get-ledger-by-clientno/' + code, 
+		type: 'GET', 			  		    	 
+	  	contentType: 'application/json',
+	    success: function(data) { 				  		    				  		    	
+	    	$.each(data, function(i, item) {
+	    		$('.custom-table > tbody:first').append("<tr><td>" + item.createdDate + "</td><td>" + item.accountTitle + "</td><td>"+item.debit+"</td><td>"+item.credit+"</td><td>"+item.balance+"</td></tr>");
+	    		totalDebit += item.debit;
+	    		totalCredit += item.credit;
+	    	});
+	    	$('.tdTotalDebit').text(totalDebit);
+	    	$('.tdTotalCredit').text(totalCredit);
+		},
+		    error: function(error, status, er){
+		    console.log(error);
+		}
+	});
+	
+}

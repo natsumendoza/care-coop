@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity(name="client_account")
 public class ClientAccountEntity {
@@ -20,6 +22,7 @@ public class ClientAccountEntity {
 	
 	private String title;
 	
+	@Temporal(TemporalType.DATE)
 	private Date createdDate;
 
 	public Date getCreatedDate() {
