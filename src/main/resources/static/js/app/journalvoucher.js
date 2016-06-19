@@ -51,6 +51,10 @@ var loadTable = function(code) {
 		    	$.each(value.accountsReceivables, function(i, item) {
 		    		$('.custom-table > tbody:first').append("<tr><td>" + value.createdDate + "</td><td>"+item.title+"</td><td>"+item.debit+"</td><td>"+item.credit+"</td></tr>");
 		    	});
+		    	
+		    	$.each(value.accountsPayables, function(i, item) {
+		    		$('.custom-table > tbody:first').append("<tr><td>" + value.createdDate + "</td><td>"+item.title+"</td><td>"+item.debit+"</td><td>"+item.credit+"</td></tr>");
+		    	});
 	    	});
 	    	
 		},

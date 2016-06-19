@@ -75,11 +75,12 @@
 							<td class="loanTD">
 							</td>
 							<td>
-								Cash
+									Cash
 							</td>
 							<td>
-								
+								<input type="text" class="form-control crCash" id="crCash" name="crCash" placeholder="0.00" style="text-align: right"/>
 							</td>
+							
 						</tr>
 						<tr>
 							<td>
@@ -88,7 +89,7 @@
 								Loans
 							</td>
 							<td>
-								
+									<input type="text" class="form-control crLoan" id="crLoan" name="crLoan" placeholder="0.00" style="text-align: right"/>
 							</td>
 						</tr>
 						<tr>
@@ -98,7 +99,7 @@
 								Interest on Loans
 							</td>
 							<td>
-								
+									<input type="text" class="form-control crInterest" id="crInterest" name="crInterest" placeholder="0.00" style="text-align: right"/>
 							</td>
 						</tr>
 						<tr>
@@ -108,7 +109,7 @@
 								Time or Savings Deposit
 							</td>
 							<td>
-								
+									<input type="text" class="form-control crTime" id="crTime" name="crTime" placeholder="0.00" style="text-align: right"/>
 							</td>
 						</tr>
 						<tr>
@@ -118,7 +119,7 @@
 								Fixed Deposits/Share Capital
 							</td>
 							<td>
-								
+									<input type="text" class="form-control crFixDep" id="crFixDep" name="crFixDep" placeholder="0.00" style="text-align: right"/>
 							</td>
 						</tr>
 						<tr>
@@ -128,7 +129,7 @@
 								Loan Redemption Fund
 							</td>
 							<td>
-								
+									<input type="text" class="form-control crRedemFund" id="crRedemFund" name="crRedemFund" placeholder="0.00" style="text-align: right"/>
 							</td>
 						</tr>
 						<tr>
@@ -138,7 +139,7 @@
 								Service Fee
 							</td>
 							<td>
-								
+									<input type="text" class="form-control crServiceFee" id="crServiceFee" name="crServiceFee" placeholder="0.00" style="text-align: right"/>
 							</td>
 						</tr>
 						<tr>
@@ -148,7 +149,7 @@
 								Loan Protect Plan
 							</td>
 							<td>
-								
+									<input type="text" class="form-control crProtectPlan" id="crProtectPlan" name="crProtectPlan" placeholder="0.00" style="text-align: right"/>
 							</td>
 						</tr>
 						<tr>
@@ -158,7 +159,7 @@
 								Damayan Fund
 							</td>
 							<td>
-								
+									<input type="text" class="form-control crDamayan" id="crDamayan" name="crDamayan" placeholder="0.00" style="text-align: right"/>
 							</td>
 						</tr>
 						<tr>
@@ -168,11 +169,35 @@
 								Fines &amp; Penalties
 							</td>
 							<td>
-								
+									<input type="text" class="form-control crFines" id="crFines" name="crFines" placeholder="0.00" style="text-align: right"/>
+							</td>
+						</tr>
+						<tr>
+							<td class="loanTD">
+							</td>
+							<td>
+								Total
+							</td>
+							<td class="crTotal">
 							</td>
 						</tr>
 					</thead>
 				</table>
+				
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-2"></div>
+							<div class="col-md-2"></div>
+							<div class="col-md-2"></div>
+							<div class="col-md-2"></div>
+	 						<div class="col-md-1">
+								<button class="btn btn-default computeTotal">Compute</button>
+							</div>
+	 						<div class="col-md-1">
+	 							<button class="btn btn-default submit-entry">Submit</button>
+	 						</div>
+						</div>
+					</div>
 			</div>
 			
 		</div>
@@ -184,7 +209,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4>Add Cash Collection Entry</h4>
+					<h4>Add Cash Disbursement Entry</h4>
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
@@ -263,7 +288,7 @@
 								<button class="btn btn-default add-account-cancel">Cancel</button>
 							</div>
 	 						<div class="col-md-2">
-	 							<button class="btn btn-default add-account-submit">Add</button>
+	 							<button class="btn btn-default add-account-submit">Submit</button>
 	 						</div>
 	 						<div class="col-md-2"></div>
 	 						<div class="col-md-2"></div>
@@ -284,4 +309,3 @@
 	
 </body>
 </html>
-

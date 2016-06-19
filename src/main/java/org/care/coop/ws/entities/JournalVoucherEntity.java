@@ -30,6 +30,9 @@ public class JournalVoucherEntity {
 	@OneToMany(cascade=CascadeType.ALL)
 	private List<AccountsReceivableEntity> accountsReceivables;
 	
+	@OneToMany(cascade=CascadeType.ALL)
+	private List<AccountsPayableEntity> accountsPayables;
+	
 	@Column(nullable=true)
 	private BigInteger debit;
 	
@@ -68,6 +71,12 @@ public class JournalVoucherEntity {
 		this.accountsReceivables = accountsReceivables;
 	}
 	
+	public List<AccountsPayableEntity> getAccountsPayables() {
+		return accountsPayables;
+	}
+	public void setAccountsPayables(List<AccountsPayableEntity> accountsPayables) {
+		this.accountsPayables = accountsPayables;
+	}
 	public Long getClientNo() {
 		return clientNo;
 	}
