@@ -66,6 +66,15 @@ public class LedgerController {
 		
 	}
 	
+	@RequestMapping(value="/care-coop/get-ledger-by-clientno-and-month/{clientNo}/{month}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<LedgerEntity>> getLedgerByClientNoAndMonth(@PathVariable Long clientNo, @PathVariable int month) {
+		
+		List<LedgerEntity> ledgerList = ledgerServiceInterface.getLedgerByClientNoAndMonth(clientNo, month);
+		
+		return new ResponseEntity<List<LedgerEntity>>(ledgerList, HttpStatus.OK);
+		
+	}
+	
 	@RequestMapping(value="/care-coop/create-ledger", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<LedgerEntity> createLedger(@RequestBody LedgerEntity ledgerEntity) {
 		

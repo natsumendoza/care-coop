@@ -79,7 +79,8 @@ li:hover h4{
 	font-weight: bold;
 }
 
-.active-li {
+.active-li, .active-li h4{
+	font-weight: bold;
 	cursor: pointer;
 	background-color: #fff;
 }
@@ -202,4 +203,12 @@ footer {
 
 .acc-no-div {
 	margin-left: 22px;
+}
+
+.add-entry-cc {
+	margin-left: -86px;
+}
+
+.type-div {
+	margin-left: -41px;
 }

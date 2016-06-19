@@ -19,7 +19,7 @@
 		
 		<div class="header-div">
 			<div class="row row1">
-				<div class="col-md-2"><h4>Type:</h4></div>
+				<div class="col-md-2"><h4 class="type-div">Type:</h4></div>
 				<div class="col-md-2"><h4>
 					<select class="form-control typeSelect">
 						<option value="1"></option>
@@ -44,6 +44,7 @@
 				<div class="col-md-1"><h4>Month:</h4></div>
   				<div class="col-md-2"><h4>
   					<select class="form-control selectMonth">
+  						<option value="0"></option>
   						<option value="1">January</option>
   						<option value="2">February</option>
   						<option value="3">March</option>
@@ -62,7 +63,7 @@
 			</div>
 			
 			<div class="row row2 rowHide">
-				<div class="col-md-2"><h4>Name:</h4></div>
+				<div class="col-md-2"><h4 class="name-div">Name:</h4></div>
 				<div class="col-md-3"><h4 class="nameDiv"></h4></div>
 				<div class="col-md-1"><h4>Status:</h4></div>
   				<div class="col-md-2"><h4 class="statusDiv"></h4></div>
@@ -80,16 +81,30 @@
 			</div>
 			
 			<div class="body-div">
-				<table id="table" data-toggle="table" data-toolbar="#toolbar">
+				<div class="body-div">
+				<table class="table custom-table">
 					<thead>
 						<tr>
-							<th data-field="">Account</th>
-							<th data-field="">Debit</th>
-							<th data-field="">Credit</th>
-							<th data-field="">Nature</th>
+							<th>Date</th>
+							<th>Account</th>
+							<th>Debit</th>
+							<th>Credit</th>
+							<th>Balance</th>
 						</tr>
 					</thead>
+					<tr class="trData">
+					</tr>
+					<tfoot>
+						<tr>
+							<td>Total</td>
+							<td></td>
+							<td><strong class="tdTotalDebit"></strong></td>
+							<td><strong class="tdTotalCredit"></strong></td>
+							<td></td>
+						</tr>
+					</tfoot>
 				</table>
+			</div>
 			</div>
 		</div>
 		
@@ -341,6 +356,16 @@
 									<img alt="Sample address sketch" th:src="@{/images/sample-sketch.png}" />
 								</div>
 							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4"></div>
+							<div class="col-md-4">
+								<button class="btn btn-default print-info-verifier">Print Information</button>
+							</div>
+	 						<div class="col-md-4"></div>
+	 		
 						</div>
 					</div>
 				</div>	

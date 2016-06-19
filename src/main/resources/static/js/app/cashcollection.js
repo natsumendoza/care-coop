@@ -1,9 +1,14 @@
 var $modal = $('#cash-collection-modal').modal({ show: false });
 var $table = $('#table');
 
+$('.accNoHide').hide();
+
 $('.add-entry').click(function () {
 	$modal.modal('show');
 });
+
+$('.add-entry').prop('disabled', true);
+$('.submit-entry').prop('disabled', true);
 
 $('.cancel').click(function() {
 	$modal.modal('hide');
@@ -57,6 +62,8 @@ $('.add-entry-submit').click(function () {
     $table.bootstrapTable('scrollTo', 'bottom');
     $('.totalDiv').text(total);
     
+    $('.submit-entry').prop('disabled', false);
+    
     clearFields();
     $modal.modal('hide');
 });
@@ -72,6 +79,7 @@ $('.submit-entry').click(function() {
 });
 
 var code = 0;
+var accountNo = 0;
 
 $('.selectCode').change(function() {
 	code = $(this).val();
@@ -79,13 +87,20 @@ $('.selectCode').change(function() {
 		url: '/care-coop/get-client-by-code/' + code, 
 		type: 'GET', 			  		    	 
 	  	contentType: 'application/json',
-	    success: function(data) { 				  		    				  		    	
+	    success: function(data) { 
+	    	loadAccountNo(code);
 	    	$('.nameDiv').text(data.name);
+	    	$('.accNoHide').show();
 		},
 		    error: function(error, status, er){
 		    console.log(error);
 		}
 	});
+});
+
+$('.selectAccountCode').change(function() {
+	accountNo = $(this).val();
+	$('.add-entry').prop('disabled', false);
 });
 
 var rows = [];
@@ -152,4 +167,29 @@ var postAccountsReceivables = function() {
 		});
 	});
 	return JSON.stringify(jsonRowAR);
+}
+
+var loadAccountNo = function(clientNo) {
+	$('.selectAccountCode').empty();
+	$.ajax({ 
+		url: '/care-coop/get-by-client-no/' + clientNo, 
+		type: 'GET', 			  		    	 
+	  	contentType: 'application/json',
+	    success: function(data) { 	
+	    	$('.selectAccountCode').append($('<option>', {
+    			value: 1,
+    			text: ""
+    		}));
+	    	$.each(data, function(index, item) {
+	    		$('.selectAccountCode').append($('<option>', {
+	    			value: item.accountNo,
+	    			text: item.accountNo
+	    		}));
+	    	});
+		},
+		    error: function(error, status, er){
+		    console.log(error);
+		}
+	});
+	
 }

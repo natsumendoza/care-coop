@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface LedgerRepository extends JpaRepository<LedgerEntity, Long> {
 
 	public List<LedgerEntity> findByClientNo(Long clientNo);
+	public List<LedgerEntity> findByClientNoAndMonth(Long clientNo, int month);
 	public List<LedgerEntity> findByClientNoAndAccountNo(Long clientNo, Long accountNo);
 	public List<LedgerEntity> findByClientNoAndAccountNoAndCreatedDate(Long clientNo, Long accountNo, Date createdDate);
 	public List<LedgerEntity> findByClientNoAndAccountNoAndMonth(Long clientNo, Long accountNo, int month);

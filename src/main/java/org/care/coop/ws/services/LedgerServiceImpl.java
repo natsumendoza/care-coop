@@ -63,4 +63,12 @@ public class LedgerServiceImpl implements LedgerServiceInterface {
 		return createdLedger;
 	}
 
+	@Override
+	public List<LedgerEntity> getLedgerByClientNoAndMonth(Long clientNo, int month) {
+
+		List<LedgerEntity> ledgerList = ledgerRepository.findByClientNoAndMonth(clientNo, month);
+		
+		return ledgerList;
+	}
+
 }
