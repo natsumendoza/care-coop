@@ -16,7 +16,7 @@ public class ClientAccountEntity {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	private Long accountNo;
+	private String loanType ;
 	
 	private Long clientNo;
 	
@@ -57,14 +57,12 @@ public class ClientAccountEntity {
 		this.id = id;
 	}
 
-	public Long getAccountNo() {
-		return accountNo;
+	public String getLoanType() {
+		return loanType;
 	}
 
-	public void setAccountNo(Long accountNo) {
-		this.accountNo = accountNo;
-	}
-	
-	
+	public void setLoanType(String loanType) {
+		this.loanType = loanType;
+	}	
 	
 }

@@ -17,17 +17,61 @@ public class LedgerEntity {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private Long clientNo;
-	private Long accountNo;
+	private String loanType;
+	private Long voucherNo;
 	private BigInteger debit;
 	private BigInteger credit;
 	private String accountTitle;
 	private BigInteger balance;
-	
+	private Long orNo;
+	private String collector;
+	private String transactionType;
+
 	@Temporal(TemporalType.DATE)
 	private Date createdDate;
 	
 	private int month;
 	
+	public String getTransactionType() {
+		return transactionType;
+	}
+
+	public void setTransactionType(String transactionType) {
+		this.transactionType = transactionType;
+	}
+
+	public String getCollector() {
+		return collector;
+	}
+
+	public void setCollector(String collector) {
+		this.collector = collector;
+	}
+
+	public Long getOrNo() {
+		return orNo;
+	}
+
+	public void setOrNo(Long orNo) {
+		this.orNo = orNo;
+	}
+	
+	public String getLoanType() {
+		return loanType;
+	}
+
+	public void setLoanType(String loanType) {
+		this.loanType = loanType;
+	}
+
+	public Long getVoucherNo() {
+		return voucherNo;
+	}
+
+	public void setVoucherNo(Long voucherNo) {
+		this.voucherNo = voucherNo;
+	}
+
 	public int getMonth() {
 		return month;
 	}
@@ -50,14 +94,6 @@ public class LedgerEntity {
 
 	public void setClientNo(Long clientNo) {
 		this.clientNo = clientNo;
-	}
-
-	public Long getAccountNo() {
-		return accountNo;
-	}
-
-	public void setAccountNo(Long accountNo) {
-		this.accountNo = accountNo;
 	}
 
 	public BigInteger getDebit() {

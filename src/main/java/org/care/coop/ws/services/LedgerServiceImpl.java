@@ -31,26 +31,26 @@ public class LedgerServiceImpl implements LedgerServiceInterface {
 	}
 
 	@Override
-	public List<LedgerEntity> getLedgerByClientNoAndAccountNo(Long clientNo, Long accountNo) {
+	public List<LedgerEntity> getLedgerByClientNoAndLoanType(Long clientNo, String loanType) {
 
-		List<LedgerEntity> ledgerList = ledgerRepository.findByClientNoAndAccountNo(clientNo, accountNo);
+		List<LedgerEntity> ledgerList = ledgerRepository.findByClientNoAndLoanType(clientNo, loanType);
 		
 		return ledgerList;
 	}
 
 	@Override
-	public List<LedgerEntity> getLedgerByCLientNoAndAccountNoAndCreatedDate(Long clientNo, Long accountNo,
+	public List<LedgerEntity> getLedgerByCLientNoAndLoanTypeAndCreatedDate(Long clientNo, String loanType,
 			Date createdDate) {
 
-		List<LedgerEntity> ledgerList = ledgerRepository.findByClientNoAndAccountNoAndCreatedDate(clientNo, accountNo, createdDate);
+		List<LedgerEntity> ledgerList = ledgerRepository.findByClientNoAndLoanTypeAndCreatedDate(clientNo, loanType, createdDate);
 		
 		return ledgerList;
 	}
 
 	@Override
-	public List<LedgerEntity> getLedgerByClientNoAndAccountNoAndMonth(Long clientNo, Long accountNo, int month) {
+	public List<LedgerEntity> getLedgerByClientNoAndLoanTypeAndMonth(Long clientNo, String loanType, int month) {
 
-		List<LedgerEntity> ledgerList = ledgerRepository.findByClientNoAndAccountNoAndMonth(clientNo, accountNo, month);
+		List<LedgerEntity> ledgerList = ledgerRepository.findByClientNoAndLoanTypeAndMonth(clientNo, loanType, month);
 		
 		return ledgerList;
 	}

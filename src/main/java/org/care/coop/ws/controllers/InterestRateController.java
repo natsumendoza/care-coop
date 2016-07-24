@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,6 +24,15 @@ public class InterestRateController {
 		InterestRateEntity createdInterestRate = interestRateServiceInterface.addInterestRate(interestRateEntity);
 		
 		return new ResponseEntity<InterestRateEntity>(createdInterestRate, HttpStatus.CREATED);
+		
+	}
+	
+	@RequestMapping(value="/care-coop/get-interest-rate-by-accountType/{accountType}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<InterestRateEntity> getInterestRateByAccountType(@PathVariable String accountType) {
+		
+		InterestRateEntity interestRateEntity = interestRateServiceInterface.getInterestRateByAccountType(accountType);
+		
+		return new ResponseEntity<InterestRateEntity>(interestRateEntity, HttpStatus.OK);
 		
 	}
 }

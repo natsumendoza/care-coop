@@ -10,9 +10,9 @@ public interface LedgerServiceInterface {
 	public List<LedgerEntity> getAllLedger();
 	public List<LedgerEntity> getLedgerByClientNoAndMonth(Long clientNo, int month);
 	public List<LedgerEntity> getLedgerByClientNo(Long clientNo);
-	public List<LedgerEntity> getLedgerByClientNoAndAccountNo(Long clientNo, Long accountNo);
-	public List<LedgerEntity> getLedgerByCLientNoAndAccountNoAndCreatedDate(Long clientNo, Long accountNo, Date createdDate);
-	public List<LedgerEntity> getLedgerByClientNoAndAccountNoAndMonth(Long clientNo, Long accountNo, int month);
+	public List<LedgerEntity> getLedgerByClientNoAndLoanType(Long clientNo, String loanType);
+	public List<LedgerEntity> getLedgerByCLientNoAndLoanTypeAndCreatedDate(Long clientNo, String loanType, Date createdDate);
+	public List<LedgerEntity> getLedgerByClientNoAndLoanTypeAndMonth(Long clientNo, String loanType, int month);
 	public LedgerEntity addLedger(LedgerEntity ledgerEntity);
 	
 }

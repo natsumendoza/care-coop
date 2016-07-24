@@ -10,8 +10,8 @@ public interface LedgerRepository extends JpaRepository<LedgerEntity, Long> {
 
 	public List<LedgerEntity> findByClientNo(Long clientNo);
 	public List<LedgerEntity> findByClientNoAndMonth(Long clientNo, int month);
-	public List<LedgerEntity> findByClientNoAndAccountNo(Long clientNo, Long accountNo);
-	public List<LedgerEntity> findByClientNoAndAccountNoAndCreatedDate(Long clientNo, Long accountNo, Date createdDate);
-	public List<LedgerEntity> findByClientNoAndAccountNoAndMonth(Long clientNo, Long accountNo, int month);
+	public List<LedgerEntity> findByClientNoAndLoanType(Long clientNo, String loanType);
+	public List<LedgerEntity> findByClientNoAndLoanTypeAndCreatedDate(Long clientNo, String loanType, Date createdDate);
+	public List<LedgerEntity> findByClientNoAndLoanTypeAndMonth(Long clientNo, String loanType, int month);
 	
 }

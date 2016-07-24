@@ -39,28 +39,28 @@ public class LedgerController {
 		
 	}
 	
-	@RequestMapping(value="/care-coop/get-ledger-by-clientno-and-accountno/{clientNo}/{accountNo}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<LedgerEntity>> getLedgerByClientNoAndAccountNo(@PathVariable Long clientNo, @PathVariable Long accountNo) {
+	@RequestMapping(value="/care-coop/get-ledger-by-clientno-and-loantype/{clientNo}/{loanType}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<LedgerEntity>> getLedgerByClientNoAndAccountNo(@PathVariable Long clientNo, @PathVariable String loanType) {
 		
-		List<LedgerEntity> ledgerList = ledgerServiceInterface.getLedgerByClientNoAndAccountNo(clientNo, accountNo);
-		
-		return new ResponseEntity<List<LedgerEntity>>(ledgerList, HttpStatus.OK);
-		
-	}
-	
-	@RequestMapping(value="/care-coop/get-ledger-by-clientno-and-accountno-and-createddate/{clientNo}/{accountNo}/{createdDate}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<LedgerEntity>> getLedgerByClientNoAndAccountNoAndCreatedDate(@PathVariable Long clientNo, @PathVariable Long accountNo, @PathVariable Date createdDate) {
-		
-		List<LedgerEntity> ledgerList = ledgerServiceInterface.getLedgerByCLientNoAndAccountNoAndCreatedDate(clientNo, accountNo, createdDate);
+		List<LedgerEntity> ledgerList = ledgerServiceInterface.getLedgerByClientNoAndLoanType(clientNo, loanType);
 		
 		return new ResponseEntity<List<LedgerEntity>>(ledgerList, HttpStatus.OK);
 		
 	}
 	
-	@RequestMapping(value="/care-coop/get-ledger-by-clientno-and-accountno-and-month/{clientNo}/{accountNo}/{month}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<LedgerEntity>> getLedgerByClientNoAndAccountNoAndMonth(@PathVariable Long clientNo, @PathVariable Long accountNo, @PathVariable int month) {
+	@RequestMapping(value="/care-coop/get-ledger-by-clientno-and-loantype-and-createddate/{clientNo}/{loanType}/{createdDate}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<LedgerEntity>> getLedgerByClientNoAndAccountNoAndCreatedDate(@PathVariable Long clientNo, @PathVariable String loanType, @PathVariable Date createdDate) {
 		
-		List<LedgerEntity> ledgerList = ledgerServiceInterface.getLedgerByClientNoAndAccountNoAndMonth(clientNo, accountNo, month);
+		List<LedgerEntity> ledgerList = ledgerServiceInterface.getLedgerByCLientNoAndLoanTypeAndCreatedDate(clientNo, loanType, createdDate);
+		
+		return new ResponseEntity<List<LedgerEntity>>(ledgerList, HttpStatus.OK);
+		
+	}
+	
+	@RequestMapping(value="/care-coop/get-ledger-by-clientno-and-loantype-and-month/{clientNo}/{loanType}/{month}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<LedgerEntity>> getLedgerByClientNoAndAccountNoAndMonth(@PathVariable Long clientNo, @PathVariable String loanType, @PathVariable int month) {
+		
+		List<LedgerEntity> ledgerList = ledgerServiceInterface.getLedgerByClientNoAndLoanTypeAndMonth(clientNo, loanType, month);
 		
 		return new ResponseEntity<List<LedgerEntity>>(ledgerList, HttpStatus.OK);
 		

@@ -17,6 +17,16 @@ public class InterestRateEntity {
 	private Long rate;
 	
 	private Date createdDate;
+	
+	private String accountType;
+
+	public String getAccountType() {
+		return accountType;
+	}
+
+	public void setAccountType(String acountType) {
+		this.accountType = acountType;
+	}
 
 	public Long getId() {
 		return id;

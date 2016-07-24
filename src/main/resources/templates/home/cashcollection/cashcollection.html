@@ -40,11 +40,24 @@
 			</div>
 			
 			<div class="row row1 accNoHide">
-				<div class="col-md-2"><h4 class="acc-no-div">Account No.:</h4></div>
+				<div class="col-md-2"><h4 class="collector-div">Collector:</h4></div>
 				<div class="col-md-2"><h4>
-					<select class="form-control selectAccountCode">
+					<select class="form-control selectCollector">
 						<option value="1"></option>
 					</select>
+				</h4></div>
+				<div class="col-md-2 add-collector-div">
+					<button class="btn btn-default add-collector">Add Collector</button>
+				</div>
+  				<div class="col-md-2"></div>
+  				<div class="col-md-2"></div>
+  				<div class="col-md-2"></div>
+			</div>
+			
+			<div class="row row1 accNoHide">
+				<div class="col-md-2"><h4 class="or-no-div">OR No.:</h4></div>
+				<div class="col-md-2"><h4>
+					<input type="text" class="form-control inputORNo" id="inputORNo" name="inputORNo" placeholder="OR No." />
 				</h4></div>
 				<div class="col-md-2">
 				</div>
@@ -146,6 +159,44 @@
 							</div>
 	 						<div class="col-md-2">
 	 							<button class="btn btn-default add-entry-submit">Add</button>
+	 						</div>
+	 						<div class="col-md-2"></div>
+	 						<div class="col-md-2"></div>
+	 		
+						</div>
+					</div>
+				</div>	
+			</div>	
+		</div>
+	</div>
+	
+	<div id="cash-collection-add-collector-modal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4>Add Loan Type</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4">
+								<label>Collector: </label>
+							</div>
+  							<div class="col-md-8">
+  								<input type="text" class="form-control inputCollector" id="inputCollector" name="inputCollector" placeholder="Collector" />
+  							</div>
+						</div>    
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-2"></div>
+	 						<div class="col-md-2"></div>
+							<div class="col-md-2">
+								<button class="btn btn-default add-collector-cancel">Cancel</button>
+							</div>
+	 						<div class="col-md-2">
+	 							<button class="btn btn-default add-collector-submit">Submit</button>
 	 						</div>
 	 						<div class="col-md-2"></div>
 	 						<div class="col-md-2"></div>

@@ -212,3 +212,20 @@ footer {
 .type-div {
 	margin-left: -41px;
 }
+
+.add-account-div {
+	margin-top: 10px;
+}
+
+.name-div-disbursement {
+	margin-left: -43px;
+}
+
+.add-entry-disbursement {
+	margin-left: -100px;
+}
+
+.account-no-div {
+	margin-top: 16px;
+	margin-left: 11px;
+}

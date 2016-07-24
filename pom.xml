@@ -4,8 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.care.coop</groupId>
-	<artifactId>coop</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>care-coop</artifactId>
 	<packaging>jar</packaging>
 
 	<name>care-coop</name>
@@ -62,6 +61,15 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-jpamodelgen</artifactId>
+		</dependency>
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-access</artifactId>
 		</dependency>
 	</dependencies>
 	

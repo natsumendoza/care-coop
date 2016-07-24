@@ -19,4 +19,12 @@ public class InteresetRateServiceImpl implements InterestRateServiceInterface {
 		return createdInterestRate;
 	}
 
+	@Override
+	public InterestRateEntity getInterestRateByAccountType(String accountType) {
+		
+		InterestRateEntity interestRateEntity = interestRateRepository.findByAccountType(accountType);
+		
+		return interestRateEntity;
+	}
+
 }

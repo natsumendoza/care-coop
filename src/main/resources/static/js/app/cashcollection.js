@@ -1,17 +1,52 @@
 var $modal = $('#cash-collection-modal').modal({ show: false });
 var $table = $('#table');
 
+var $addCollectorModal = $('#cash-collection-add-collector-modal').modal({ show: false });
+
 $('.accNoHide').hide();
 
 $('.add-entry').click(function () {
 	$modal.modal('show');
 });
 
-$('.add-entry').prop('disabled', true);
 $('.submit-entry').prop('disabled', true);
 
 $('.cancel').click(function() {
 	$modal.modal('hide');
+});
+
+$('.add-collector').click(function() {
+	$addCollectorModal.modal('show');
+});
+
+$('.add-collector-cancel').click(function() {
+	$addCollectorModal.modal('hide');
+});
+
+$('.add-collector-submit').click(function() {
+	
+	var collector = $('.inputCollector').val();
+	
+	var rawjson = {
+			collector: collector,
+	};
+	
+	var jsondata = JSON.stringify(rawjson);
+	
+	$.ajax({ 
+		url: '/care-coop/create-collector/', 
+		type: 'POST', 			  		    	 
+	    data: jsondata,
+	  	contentType: 'application/json',
+	    success: function(data) { 				  		    				  		    	
+	    		loadCollector();
+	    		$addCollectorModal.modal('hide');
+		    },
+		    error: function(error, status, er){
+		    	console.log(error);
+		    }
+   	});
+	
 });
 
 // get all Account titles
@@ -69,10 +104,19 @@ $('.add-entry-submit').click(function () {
 });
 
 $('.submit-entry').click(function() {
+	var orNo = $('.inputORNo').val();
 	var title = $('.particulars').val();
 	var debit = total;
 	var credit = 0;
+	
+	var currentMonth = new Date().getMonth() + 1;
+	
+	var transactionType = "Cash Collection";
+	
+	var collector = $('.selectCollector').val();
+	
 	postJournalVoucher(code, title, debit, credit);
+	postLedger(orNo, "Cash", debit, code, new Date(), debit, credit, transactionType, currentMonth, collector);
 	
 	$('.totalDiv').text("0");
 	$table.bootstrapTable('removeAll');
@@ -88,7 +132,7 @@ $('.selectCode').change(function() {
 		type: 'GET', 			  		    	 
 	  	contentType: 'application/json',
 	    success: function(data) { 
-	    	loadAccountNo(code);
+	    	loadCollector();
 	    	$('.nameDiv').text(data.name);
 	    	$('.accNoHide').show();
 		},
@@ -98,12 +142,31 @@ $('.selectCode').change(function() {
 	});
 });
 
-$('.selectAccountCode').change(function() {
-	accountNo = $(this).val();
-	$('.add-entry').prop('disabled', false);
-});
-
 var rows = [];
+
+var loadCollector = function() {
+	$('.selectCollector').empty();
+		$.ajax({ 
+			url: '/care-coop/get-all-collectors/', 
+			type: 'GET', 			  		    	 
+		  	contentType: 'application/json',
+		    success: function(data) { 		
+		    	$('.selectCollector').append($('<option>', {
+	    			value: 1,
+	    			text: ""
+	    		}));
+		    	$.each(data, function(index, item) {
+		    		$('.selectCollector').append($('<option>', {
+		    			value: item.collector,
+		    			text: item.collector
+		    		}));
+		    	});
+			},
+			    error: function(error, status, er){
+			    console.log(error);
+			}
+		});
+}
 
 function inputData(particulars, amount) {
     var row = [];
@@ -190,6 +253,39 @@ var loadAccountNo = function(clientNo) {
 		    error: function(error, status, er){
 		    console.log(error);
 		}
+	});
+	
+}
+
+var postLedger = function(orNo, accountTitle, balance, clientNo, createdDate, credit, debit, transactionType, month, collector) {
+	
+	var rawjson = {
+		clientNo: clientNo,
+		orNo: orNo,
+		debit: debit,
+		credit: credit,
+		accountTitle: accountTitle,
+		balance: balance,
+		createdDate: createdDate,
+		transactionType: transactionType,
+		month: month,
+		collector: collector
+	};
+	
+	var jsondata = JSON.stringify(rawjson);
+	
+	$.ajax({ 
+		url: '/care-coop/create-ledger', 
+		type: 'POST', 			  		    	 
+	    data: jsondata,
+	  	contentType: 'application/json',
+	    success: function(data) { 				  		    				  		    	
+	    		alert("Ledger successfully created!");
+		    },
+		    error: function(error, status, er){
+		    	console.log(error);
+		    }
+	
 	});
 	
 }
