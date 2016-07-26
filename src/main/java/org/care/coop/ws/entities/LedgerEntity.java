@@ -12,7 +12,7 @@ import javax.persistence.TemporalType;
 
 @Entity(name="ledger")
 public class LedgerEntity {
-
+	// Ledger entity
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;

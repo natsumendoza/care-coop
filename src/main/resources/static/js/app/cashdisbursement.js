@@ -272,6 +272,7 @@ var postLedger = function(loanType, accountTitle, balance, clientNo, createdDate
 	
 }
 
+// monthly payment computation
 var computeMonthlyPayment = function(principal, term, interest) {
 	
 	var M = 0;
