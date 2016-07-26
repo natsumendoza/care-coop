@@ -26,12 +26,32 @@ public class LedgerEntity {
 	private Long orNo;
 	private String collector;
 	private String transactionType;
+	private Double monthlyPayment;
 
 	@Temporal(TemporalType.DATE)
 	private Date createdDate;
 	
+	@Temporal(TemporalType.DATE)
+	private Date dueDate;
+	
 	private int month;
 	
+	public Double getMonthlyPayment() {
+		return monthlyPayment;
+	}
+
+	public void setMonthlyPayment(Double monthlyPayment) {
+		this.monthlyPayment = monthlyPayment;
+	}
+
+	public Date getDueDate() {
+		return dueDate;
+	}
+
+	public void setDueDate(Date dueDate) {
+		this.dueDate = dueDate;
+	}
+
 	public String getTransactionType() {
 		return transactionType;
 	}

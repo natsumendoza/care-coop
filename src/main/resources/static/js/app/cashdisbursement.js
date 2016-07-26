@@ -111,40 +111,46 @@ var loadLoanType = function() {
 
 $('.add-entry-submit').click(function() {
 	var amount = $('.inputAmount').val();
+	term = $('.inputTerm').val();
+	$('.loanTD1').text(amount);
 	$('.loanTD').text(amount);
 	$modal.modal('hide');
 });
 
+var term = 0;
 var total = 0;
 $('.computeTotal').click(function() {
-	var crCash = parseInt($('.crCash').val());
+	var crCash = ($('.crCash').val() !== "") ? parseFloat($('.crCash').val()) : 0.00;
 	inputData("[Credit] Cash", crCash);
-	var crLoan = parseInt($('.crLoan').val());
-	inputData("[Credit] Loans", crLoan);
-	var crInterest = parseInt($('.crInterest').val());
+	var crLoan = ($('.loanTD1').text() !== "") ? parseFloat($('.loanTD').text()) : 0.00;
+	inputData("[Debit] Loans", crLoan);
+	var crInterest = ($('.crInterest').val() !== "") ? parseFloat($('.crInterest').val()) : 0.00;
 	inputData("[Credit] Interest on Loans", crInterest);
-	var crTime = parseInt($('.crTime').val());
+	var crTime = ($('.crTime').val() !== "") ? parseFloat($('.crTime').val()) : 0.00;
 	inputData("[Credit] Time or Savings Deposit", crTime);
-	var crFixDep = parseInt($('.crFixDep').val());
+	var crFixDep = ($('.crFixDep').val() !== "") ? parseFloat($('.crFixDep').val()) : 0.00;
 	inputData("[Credit] Fixed Deposits/Share Capital", crFixDep);
-	var crRedemFund = parseInt($('.crRedemFund').val());
+	var crRedemFund = ($('.crRedemFund').val() !== "") ? parseFloat($('.crRedemFund').val()) : 0.00;
 	inputData("[Credit] Loan Redemption Fund", crRedemFund);
-	var crServiceFee = parseInt($('.crServiceFee').val());
+	var crServiceFee = ($('.crServiceFee').val() !== "") ? parseFloat($('.crServiceFee').val()) : 0.00;
 	inputData("[Credit] Service Fee", crServiceFee);
-	var crProtectPlan = parseInt($('.crProtectPlan').val());
+	var crProtectPlan = ($('.crProtectPlan').val() !== "") ? parseFloat($('.crProtectPlan').val()) : 0.00;
 	inputData("[Credit] Loan Protect Plan", crProtectPlan);
-	var crDamayan = parseInt($('.crDamayan').val());
+	var crDamayan = ($('.crDamayan').val() !== "") ? parseFloat($('.crDamayan').val()) : 0.00;
 	inputData("[Credit] Damayan Fund", crDamayan);
-	var crFines = parseInt($('.crFines').val());
+	var crFines = ($('.crFines').val() !== "") ? parseFloat($('.crFines').val()) : 0.00;
 	inputData("[Credit] Fines & Penalties", crFines);
 	
-	console.log(rows);
+	console.log("loan amount: " + $('.loanTD1').text());
+	
+	console.log(crCash + ", " + crLoan + ", " + crInterest + ", " + crTime + ", " + crFixDep + ", " + crRedemFund + ", " + crServiceFee + ", " + crProtectPlan + ", " + crDamayan + ", " + crFines);
 
 	total = crCash + crLoan + crInterest + crTime + crFixDep + crRedemFund + crServiceFee + crProtectPlan + crDamayan + crFines;
 	$('.crTotal').text(total);
-	var debTotal = parseInt($('.inputAmount').val());
+	var debTotal = parseFloat($('.inputAmount').val());
 });
 
+//console.log("Month: " + new Date().getMonth() + 1 + " Date: " + new Date().getDate() + " Year: " + new Date().getFullYear());
 $('.submit-entry').click(function() {
 	var voucherNo = $('.disbVoucherNo').val();
 	var loanType = $('.selectLoanType').val();
@@ -154,8 +160,20 @@ $('.submit-entry').click(function() {
 	var transactionType = "Cash Disbursement";
 	var currentMonth = new Date().getMonth() + 1;
 	
+	var createdDate = new Date();
+	
+	// compute Due Date
+	var currentDate = new Date();
+	currentDate.setMonth(currentDate.getMonth() + parseInt(term));
+	// end
+	
+	var principal = parseFloat($('.loanTD1').text());
+	var interest = 5;
+	
+	console.log("Monthly payment is: " + computeMonthlyPayment(principal, term, interest));
+	
 	postJournalVoucher(code, loanType, title, debit, credit);
-	postLedger(loanType, title, $('.inputAmount').val(), code, new Date(), credit, debit, transactionType, currentMonth, voucherNo);
+	postLedger(loanType, title, $('.inputAmount').val(), code, createdDate, credit, debit, transactionType, currentMonth, voucherNo, currentDate);
 });
 
 var rows = [];
@@ -220,7 +238,7 @@ var postAccountsPayables = function() {
 	return JSON.stringify(jsonRowAR);
 }
 
-var postLedger = function(loanType, accountTitle, balance, clientNo, createdDate, credit, debit, transactionType, month, voucherNo) {
+var postLedger = function(loanType, accountTitle, balance, clientNo, createdDate, credit, debit, transactionType, month, voucherNo, dueDate) {
 	
 	var rawjson = {
 		clientNo: clientNo,
@@ -232,7 +250,8 @@ var postLedger = function(loanType, accountTitle, balance, clientNo, createdDate
 		createdDate: createdDate,
 		transactionType: transactionType,
 		month: month,
-		voucherNo: voucherNo
+		voucherNo: voucherNo,
+		dueDate: dueDate
 	};
 	
 	var jsondata = JSON.stringify(rawjson);
@@ -250,5 +269,33 @@ var postLedger = function(loanType, accountTitle, balance, clientNo, createdDate
 		    }
 	
 	});
+	
+}
+
+var computeMonthlyPayment = function(principal, term, interest) {
+	
+	var M = 0;
+	var P = principal;
+	console.log("principal is: " + P);
+	var rawInterest = 1 + (interest / 100) / 12;
+	console.log("raw interest is: " + rawInterest);
+	var J = rawInterest.toFixed(4);
+	console.log("J is: " + J);
+	N = term;
+	console.log("N is: " + N);
+	console.log("(1 + J) is: " + J);
+	console.log("Math.pow((1 + J), -N) is: " + (Math.pow(J, (-N))));
+	
+	var tempJ = Math.pow(J, (-N)).toFixed(4);
+	
+	var finalJ = (J - 1) / (1 - tempJ);
+	
+	console.log((J - 1).toFixed(4) + " / (" + 1 + " - " + tempJ + ")");
+	
+	console.log("final J: " + finalJ);
+	
+	M = P * finalJ;
+	
+	return M.toFixed(2);
 	
 }
