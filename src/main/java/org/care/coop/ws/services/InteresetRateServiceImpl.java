@@ -1,5 +1,7 @@
 package org.care.coop.ws.services;
 
+import java.util.List;
+
 import org.care.coop.ws.entities.InterestRateEntity;
 import org.care.coop.ws.repositories.InterestRateRepositoy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,15 @@ public class InteresetRateServiceImpl implements InterestRateServiceInterface {
 		InterestRateEntity interestRateEntity = interestRateRepository.findByAccountType(accountType);
 		
 		return interestRateEntity;
+	}
+
+	@Override
+	public List<InterestRateEntity> getAllInterestRates() {
+		
+
+		List<InterestRateEntity> interestRateList = interestRateRepository.findAll();
+		
+		return interestRateList;
 	}
 
 }

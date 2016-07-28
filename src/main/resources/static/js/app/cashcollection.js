@@ -115,6 +115,12 @@ $('.submit-entry').click(function() {
 	
 	var collector = $('.selectCollector').val();
 	
+	
+	/* temporary static loan type */
+	var latestBalance = getLatestBalance(code, "Educational Loan", "Cash Disbursement");
+	
+	var newBalance = latestBalance - parseInt(debit);
+	
 	postJournalVoucher(code, title, debit, credit);
 	postLedger(orNo, "Cash", debit, code, new Date(), debit, credit, transactionType, currentMonth, collector);
 	
@@ -166,6 +172,25 @@ var loadCollector = function() {
 			    console.log(error);
 			}
 		});
+}
+
+function getLatestBalance(clientNo, loanType, transactionType) {
+	
+	var latestBalance = 0;
+	
+	$.ajax({ 
+		url: '/care-coop/get-latest-balance-by-clientno-and-loantype-and-transactiontype/' + clientNo +'/' + loanType + '/' + transactionType, 
+		type: 'GET', 			  		    	 
+	    async: false,
+	  	contentType: 'application/json',
+	    success: function(data) { 				  		    				  		    	
+	    		latestBalance = parseInt(data.balance);
+		    },
+		    error: function(error, status, er){
+		    	console.log(error);
+		    }
+   	});
+	return latestBalance;
 }
 
 function inputData(particulars, amount) {

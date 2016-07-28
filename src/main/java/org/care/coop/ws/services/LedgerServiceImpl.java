@@ -71,4 +71,13 @@ public class LedgerServiceImpl implements LedgerServiceInterface {
 		return ledgerList;
 	}
 
+	@Override
+	public List<LedgerEntity> getLedgerByClientNoAndLoanTypeAndTransactionType(Long clientNo, String loanType,
+			String transactionType) {
+		
+		List<LedgerEntity> ledgerList = ledgerRepository.findByClientNoAndLoanTypeAndTransactionType(clientNo, loanType, transactionType);
+		
+		return ledgerList;
+	}
+
 }

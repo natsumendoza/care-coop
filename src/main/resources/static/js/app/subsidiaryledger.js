@@ -58,7 +58,8 @@ $('.add-info-submit').click(function() {
 		},
 //		closedAccount: closedAccount,
 		business: business,
-		dateClosed: dateClosed
+		dateClosed: dateClosed,
+		memberType: memberType
 	};
 	
 	var jsondata = JSON.stringify(rawjson);
@@ -78,6 +79,38 @@ $('.add-info-submit').click(function() {
 	
 	$modal.modal('hide');
 	
+});
+
+// function that calls itself
+var loadMemberType = function() {
+	$('.selectMemberType').empty();
+		$.ajax({ 
+			url: '/care-coop/get-all-interest-rates/', 
+			type: 'GET', 			  		    	 
+		  	contentType: 'application/json',
+		    success: function(data) { 		
+		    	$('.selectMemberType').append($('<option>', {
+	    			value: 1,
+	    			text: ""
+	    		}));
+		    	$.each(data, function(index, item) {
+		    		$('.selectMemberType').append($('<option>', {
+		    			value: item.accountType,
+		    			text: item.accountType
+		    		}));
+		    	});
+			},
+			    error: function(error, status, er){
+			    console.log(error);
+			}
+		});
+}();
+// end
+
+var memberType = "";
+
+$('.selectMemberType').change(function() {
+	memberType = $(this).val();
 });
 
 //get all Member codes

@@ -67,17 +67,21 @@ $.ajax({
 // end
 
 var code = 0;
-
+var memberType = "";
+var interestRate = 0;
 $('.selectCode').change(function() {
 	code = $(this).val();
 	$.ajax({ 
 		url: '/care-coop/get-client-by-code/' + code, 
 		type: 'GET', 			  		    	 
 	  	contentType: 'application/json',
+	  	async: false,
 	    success: function(data) { 			
 	    	loadLoanType();
 	    	$('.nameDiv').text(data.name);
 	    	$('.accNoHide').show();
+	    	memberType = data.memberType;
+	    	interestRate = getInterestRate(memberType);
 		},
 		    error: function(error, status, er){
 		    console.log(error);
@@ -112,6 +116,8 @@ var loadLoanType = function() {
 $('.add-entry-submit').click(function() {
 	var amount = $('.inputAmount').val();
 	term = $('.inputTerm').val();
+	var interestVal = (interestRate / 100) * amount;
+	$('.crInterest').val(interestVal);
 	$('.loanTD1').text(amount);
 	$('.loanTD').text(amount);
 	$modal.modal('hide');
@@ -168,7 +174,7 @@ $('.submit-entry').click(function() {
 	// end
 	
 	var principal = parseFloat($('.loanTD1').text());
-	var interest = 5;
+	var interest = interestRate;
 	
 	console.log("Monthly payment is: " + computeMonthlyPayment(principal, term, interest));
 	
@@ -272,11 +278,34 @@ var postLedger = function(loanType, accountTitle, balance, clientNo, createdDate
 	
 }
 
+var getInterestRate = function(memberType) {
+	
+	var interestRate = 0;
+	
+	$.ajax({ 
+		url: '/care-coop/get-interest-rate-by-accountType/' + memberType, 
+		type: 'GET', 
+		async: false,
+	  	contentType: 'application/json',
+	    success: function(data) { 				  		    				  		    	
+	    		interestRate = data.rate;
+		    },
+		    error: function(error, status, er){
+		    	console.log(error);
+		    }
+	
+	});
+	
+	return interestRate;
+	
+}
+
 // monthly payment computation
 var computeMonthlyPayment = function(principal, term, interest) {
 	
 	var M = 0;
 	var P = principal;
+	console.log("parsed interest is: " + interest);
 	console.log("principal is: " + P);
 	var rawInterest = 1 + (interest / 100) / 12;
 	console.log("raw interest is: " + rawInterest);

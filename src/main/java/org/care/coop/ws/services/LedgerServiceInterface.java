@@ -14,5 +14,6 @@ public interface LedgerServiceInterface {
 	public List<LedgerEntity> getLedgerByCLientNoAndLoanTypeAndCreatedDate(Long clientNo, String loanType, Date createdDate);
 	public List<LedgerEntity> getLedgerByClientNoAndLoanTypeAndMonth(Long clientNo, String loanType, int month);
 	public LedgerEntity addLedger(LedgerEntity ledgerEntity);
+	public List<LedgerEntity> getLedgerByClientNoAndLoanTypeAndTransactionType(Long clientNo, String loanType, String transactionType);
 	
 }

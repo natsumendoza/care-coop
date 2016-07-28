@@ -47,6 +47,16 @@ public class ClientEntity {
 	
 	@Temporal(TemporalType.DATE)
 	private Date createdDate;
+	
+	private String memberType;
+
+	public String getMemberType() {
+		return memberType;
+	}
+
+	public void setMemberType(String memberType) {
+		this.memberType = memberType;
+	}
 
 	public Long getId() {
 		return id;

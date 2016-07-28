@@ -1,5 +1,7 @@
 package org.care.coop.ws.controllers;
 
+import java.util.List;
+
 import org.care.coop.ws.entities.InterestRateEntity;
 import org.care.coop.ws.services.InterestRateServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,4 +37,16 @@ public class InterestRateController {
 		return new ResponseEntity<InterestRateEntity>(interestRateEntity, HttpStatus.OK);
 		
 	}
+	
+	@RequestMapping(value="/care-coop/get-all-interest-rates/", method=RequestMethod.GET)
+	public ResponseEntity<List<InterestRateEntity>> getAllInterestRate() {
+		
+		List<InterestRateEntity> interestRateList = interestRateServiceInterface.getAllInterestRates();
+		
+		return new ResponseEntity<List<InterestRateEntity>>(interestRateList, HttpStatus.OK);
+		
+	}
+	
+	
+	
 }

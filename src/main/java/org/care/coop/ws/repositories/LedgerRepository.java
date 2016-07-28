@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.care.coop.ws.entities.LedgerEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 
 public interface LedgerRepository extends JpaRepository<LedgerEntity, Long> {
 
@@ -13,5 +15,6 @@ public interface LedgerRepository extends JpaRepository<LedgerEntity, Long> {
 	public List<LedgerEntity> findByClientNoAndLoanType(Long clientNo, String loanType);
 	public List<LedgerEntity> findByClientNoAndLoanTypeAndCreatedDate(Long clientNo, String loanType, Date createdDate);
 	public List<LedgerEntity> findByClientNoAndLoanTypeAndMonth(Long clientNo, String loanType, int month);
+	public List<LedgerEntity> findByClientNoAndLoanTypeAndTransactionType(Long clientNo, String loanType, String transactionType);
 	
 }
