@@ -157,6 +157,7 @@ $('.computeTotal').click(function() {
 });
 
 //console.log("Month: " + new Date().getMonth() + 1 + " Date: " + new Date().getDate() + " Year: " + new Date().getFullYear());
+// Monthly payment computation
 $('.submit-entry').click(function() {
 	var voucherNo = $('.disbVoucherNo').val();
 	var loanType = $('.selectLoanType').val();
